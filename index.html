@@ -1,15 +1,20 @@
-```html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AdmissionMate - University Admission Assistant</title>
+    <title>AdmissionMate | University Admission Preparation</title>
 
-    <meta name="description" content="বাংলাদেশের বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি, admission information, question bank, model test ও study resources এক জায়গায়।">
+    <meta name="description"
+          content="বাংলাদেশের বিশ্ববিদ্যালয় ভর্তি প্রস্তুতির জন্য Preparation, Question Bank, Model Test এবং University Information এক জায়গায়।">
 
     <style>
+
+        /* =========================
+           BASIC
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
@@ -22,9 +27,9 @@
 
         body {
             font-family: Arial, "Noto Sans Bengali", sans-serif;
-            background: #f5f7fb;
+            background: #f6f8fc;
             color: #172033;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         a {
@@ -37,879 +42,729 @@
             font-family: inherit;
         }
 
+        .container {
+            width: 92%;
+            max-width: 1050px;
+            margin: auto;
+        }
+
+
         /* =========================
            NAVBAR
         ========================== */
 
-        .navbar {
+        header {
+            background: white;
+            border-bottom: 1px solid #e7eaf0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e7eaf0;
         }
 
-        .nav-container {
-            max-width: 1150px;
-            margin: auto;
-            padding: 15px 20px;
+        .navbar {
+            min-height: 68px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
 
-            font-size: 23px;
+            font-size: 21px;
             font-weight: 800;
-            color: #1d4ed8;
+            color: #155eef;
         }
 
         .logo-icon {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
-            background: #e8efff;
-            border-radius: 12px;
-            font-size: 22px;
+            background: #edf3ff;
+            border-radius: 10px;
+
+            font-size: 20px;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 20px;
         }
 
         .nav-links a {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             color: #4b5563;
-            transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: #1d4ed8;
+            color: #155eef;
         }
 
-        .login-btn {
-            background: #1d4ed8;
-            color: white !important;
-
-            padding: 9px 17px;
-            border-radius: 9px;
-        }
-
-        .menu-btn {
+        .mobile-menu {
             display: none;
+
             border: none;
             background: transparent;
+
             font-size: 25px;
             cursor: pointer;
         }
+
 
         /* =========================
            HERO
         ========================== */
 
         .hero {
+            padding: 58px 0 42px;
+            text-align: center;
+
             background:
-                radial-gradient(circle at 85% 20%, #dbeafe 0, transparent 30%),
-                linear-gradient(135deg, #eef4ff, #ffffff);
-
-            padding: 80px 20px 70px;
-        }
-
-        .hero-container {
-            max-width: 1150px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            align-items: center;
+                radial-gradient(
+                    circle at 50% 0%,
+                    #e4edff,
+                    transparent 55%
+                ),
+                #f6f8fc;
         }
 
         .hero-badge {
             display: inline-block;
 
-            background: #e0eaff;
-            color: #1d4ed8;
-
-            padding: 7px 13px;
+            padding: 6px 12px;
             border-radius: 50px;
 
-            font-size: 13px;
+            background: #e7efff;
+            color: #155eef;
+
+            font-size: 12px;
             font-weight: 700;
 
-            margin-bottom: 18px;
+            margin-bottom: 13px;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 5vw, 58px);
-            line-height: 1.1;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
+            font-size: clamp(30px, 5vw, 45px);
+            line-height: 1.15;
+
+            margin-bottom: 12px;
         }
 
         .hero h1 span {
-            color: #1d4ed8;
+            color: #155eef;
         }
 
-        .hero-text {
-            color: #64748b;
-            font-size: 17px;
-            max-width: 650px;
-            margin-bottom: 28px;
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+
+            color: #667085;
+            font-size: 14px;
+
+            margin-bottom: 23px;
         }
 
-        .search-box {
-            max-width: 620px;
+        .search {
+            width: 100%;
+            max-width: 600px;
+
+            margin: auto;
 
             display: flex;
-            align-items: center;
 
             background: white;
-            border: 1px solid #dbe2ec;
-            border-radius: 14px;
+            border: 1px solid #dfe4ec;
 
-            padding: 7px;
+            padding: 5px;
+            border-radius: 11px;
 
-            box-shadow: 0 12px 35px rgba(30, 64, 175, 0.08);
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
         }
 
-        .search-box input {
+        .search input {
             flex: 1;
+
             border: none;
             outline: none;
 
-            padding: 14px;
+            padding: 11px 13px;
 
-            font-size: 15px;
-            background: transparent;
-        }
-
-        .search-btn {
-            border: none;
-            cursor: pointer;
-
-            background: #1d4ed8;
-            color: white;
-
-            padding: 13px 20px;
-            border-radius: 10px;
-
-            font-weight: 700;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 35px;
-            margin-top: 30px;
-        }
-
-        .stat strong {
-            display: block;
-            font-size: 23px;
-        }
-
-        .stat small {
-            color: #64748b;
-        }
-
-        .hero-card {
-            background: white;
-            border-radius: 24px;
-            padding: 25px;
-
-            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.1);
-
-            border: 1px solid #e6eaf0;
-        }
-
-        .hero-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            margin-bottom: 20px;
-        }
-
-        .hero-card-header h3 {
-            font-size: 18px;
-        }
-
-        .live {
-            color: #16a34a;
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .deadline {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 15px 0;
-            border-bottom: 1px solid #edf0f4;
-        }
-
-        .deadline:last-child {
-            border-bottom: none;
-        }
-
-        .uni-name {
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        .uni-unit {
-            color: #64748b;
-            font-size: 12px;
-        }
-
-        .date {
-            text-align: right;
-        }
-
-        .date strong {
-            display: block;
-            font-size: 14px;
-        }
-
-        .date small {
-            color: #64748b;
-        }
-
-        /* =========================
-           SECTION
-        ========================== */
-
-        .section {
-            max-width: 1150px;
-            margin: auto;
-            padding: 70px 20px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-            gap: 20px;
-
-            margin-bottom: 28px;
-        }
-
-        .section-title {
-            font-size: 30px;
-            margin-bottom: 5px;
-        }
-
-        .section-subtitle {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .view-all {
-            color: #1d4ed8;
-            font-weight: 700;
-            font-size: 14px;
-        }
-
-        /* =========================
-           QUICK ACCESS
-        ========================== */
-
-        .quick-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .quick-card {
-            background: white;
-            border: 1px solid #e8ebf1;
-
-            border-radius: 17px;
-            padding: 24px;
-
-            transition: 0.25s;
-            cursor: pointer;
-        }
-
-        .quick-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
-        }
-
-        .quick-icon {
-            width: 48px;
-            height: 48px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 13px;
-            background: #eef4ff;
-
-            font-size: 23px;
-            margin-bottom: 15px;
-        }
-
-        .quick-card h3 {
-            font-size: 17px;
-            margin-bottom: 5px;
-        }
-
-        .quick-card p {
-            color: #64748b;
             font-size: 13px;
         }
 
+        .search button {
+            border: none;
+            cursor: pointer;
+
+            background: #155eef;
+            color: white;
+
+            padding: 10px 17px;
+
+            border-radius: 8px;
+
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+
         /* =========================
-           UNIVERSITY CARDS
+           MAIN PREPARATION
         ========================== */
 
-        .university-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .main-section {
+            padding: 25px 0 10px;
         }
 
-        .university-card {
+        .section-title {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+
+        .section-title p {
+            color: #667085;
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           PREPARATION CARD
+        ========================== */
+
+        .preparation-card {
             background: white;
-            border: 1px solid #e7eaf0;
+
+            border: 1px solid #e5e9f0;
             border-radius: 18px;
 
-            padding: 22px;
-            transition: 0.25s;
+            padding: 23px;
+
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
         }
 
-        .university-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
-        }
-
-        .uni-top {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-
-            margin-bottom: 20px;
-        }
-
-        .uni-logo {
-            width: 52px;
-            height: 52px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 14px;
-
-            background: #eef4ff;
-            font-size: 24px;
-        }
-
-        .university-card h3 {
-            font-size: 16px;
-        }
-
-        .university-card .location {
-            color: #64748b;
-            font-size: 12px;
-        }
-
-        .uni-info {
+        .subjects {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns: repeat(6, 1fr);
+
             gap: 10px;
 
             margin-bottom: 18px;
         }
 
-        .info-box {
-            background: #f8fafc;
-            padding: 10px;
-            border-radius: 10px;
-        }
+        .subject {
+            padding: 14px 7px;
 
-        .info-box small {
-            display: block;
-            color: #64748b;
-            font-size: 11px;
-        }
+            text-align: center;
 
-        .info-box strong {
-            font-size: 13px;
-        }
+            border: 1px solid #e7eaf0;
+            border-radius: 11px;
 
-        .details-btn {
-            width: 100%;
-            border: none;
+            background: #fafbfc;
+
             cursor: pointer;
 
-            padding: 11px;
-
-            background: #eef4ff;
-            color: #1d4ed8;
-
-            border-radius: 9px;
-            font-weight: 700;
+            transition: 0.2s;
         }
 
-        /* =========================
-           ADMISSION CALENDAR
-        ========================== */
-
-        .calendar {
-            background: white;
-            border: 1px solid #e7eaf0;
-            border-radius: 18px;
-            overflow: hidden;
+        .subject:hover {
+            border-color: #155eef;
+            transform: translateY(-2px);
         }
 
-        .calendar-row {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-
-            padding: 17px 20px;
-            border-bottom: 1px solid #edf0f4;
-
-            align-items: center;
+        .subject-icon {
+            font-size: 22px;
+            margin-bottom: 5px;
         }
 
-        .calendar-row:last-child {
-            border-bottom: none;
-        }
+        .subject span {
+            display: block;
 
-        .calendar-head {
-            background: #f8fafc;
             font-size: 12px;
             font-weight: 700;
-            color: #64748b;
         }
 
-        .calendar-row strong {
-            font-size: 14px;
-        }
-
-        .calendar-row span {
-            font-size: 13px;
-            color: #64748b;
-        }
-
-        .status {
-            display: inline-block;
-            width: fit-content;
-
-            padding: 5px 9px;
-            border-radius: 50px;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            background: #dcfce7;
-            color: #15803d;
-        }
-
-        /* =========================
-           TEST SECTION
-        ========================== */
-
-        .test-section {
-            background: #111827;
-            color: white;
-            border-radius: 25px;
-            padding: 45px;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-
-            align-items: center;
-        }
-
-        .test-section p {
-            color: #cbd5e1;
-            margin: 12px 0 24px;
+        .subject small {
+            color: #667085;
+            font-size: 10px;
         }
 
         .primary-btn {
-            display: inline-block;
+            display: block;
+
+            width: fit-content;
+
+            margin: auto;
 
             border: none;
             cursor: pointer;
 
-            background: white;
-            color: #111827;
+            background: #155eef;
+            color: white;
 
-            padding: 12px 19px;
-            border-radius: 10px;
+            padding: 11px 20px;
 
-            font-weight: 800;
-        }
-
-        .test-preview {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(255,255,255,0.1);
-
-            border-radius: 17px;
-            padding: 22px;
-        }
-
-        .test-question {
-            font-size: 15px;
-            margin-bottom: 18px;
-        }
-
-        .option {
-            padding: 11px 13px;
-            background: rgba(255,255,255,0.06);
             border-radius: 9px;
-            margin-bottom: 8px;
+
             font-size: 13px;
+            font-weight: 700;
         }
+
 
         /* =========================
-           RESOURCES
+           TWO MAIN FEATURES
         ========================== */
 
-        .resource-grid {
+        .feature-section {
+            padding: 25px 0;
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
         }
 
-        .resource-card {
+        .feature-card {
             background: white;
-            border: 1px solid #e7eaf0;
-            border-radius: 17px;
 
-            padding: 23px;
+            border: 1px solid #e5e9f0;
+            border-radius: 16px;
+
+            padding: 22px;
+
+            transition: 0.2s;
         }
 
-        .resource-card h3 {
-            margin-bottom: 8px;
+        .feature-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 30px rgba(15, 23, 42, 0.07);
         }
 
-        .resource-card p {
-            color: #64748b;
-            font-size: 13px;
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #edf3ff;
+
+            border-radius: 11px;
+
+            font-size: 22px;
+
+            margin-bottom: 13px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .feature-card p {
+            color: #667085;
+            font-size: 12px;
+
             margin-bottom: 15px;
         }
 
-        .resource-link {
-            color: #1d4ed8;
-            font-size: 13px;
+        .feature-link {
+            color: #155eef;
+
+            font-size: 12px;
             font-weight: 700;
         }
+
 
         /* =========================
-           NEWSLETTER
+           UNIVERSITY
         ========================== */
 
-        .newsletter {
-            background: #eaf1ff;
-            border-radius: 22px;
-            padding: 40px;
-
-            text-align: center;
+        .university-section {
+            padding: 15px 0 30px;
         }
 
-        .newsletter h2 {
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .newsletter p {
-            color: #64748b;
-            margin-bottom: 22px;
-        }
-
-        .email-box {
-            max-width: 500px;
-            margin: auto;
-
-            display: flex;
+        .university-box {
             background: white;
 
-            border-radius: 10px;
-            padding: 5px;
+            border: 1px solid #e5e9f0;
+            border-radius: 16px;
+
+            padding: 22px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
         }
 
-        .email-box input {
+        .university-box h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .university-box p {
+            color: #667085;
+            font-size: 12px;
+        }
+
+        .university-search {
+            display: flex;
+
+            width: 100%;
+            max-width: 350px;
+
+            border: 1px solid #dfe4ec;
+
+            border-radius: 9px;
+
+            overflow: hidden;
+        }
+
+        .university-search input {
             flex: 1;
+
             border: none;
             outline: none;
-            padding: 12px;
+
+            padding: 10px;
+            font-size: 12px;
         }
 
-        .email-box button {
+        .university-search button {
             border: none;
-            background: #1d4ed8;
+
+            background: #155eef;
             color: white;
 
-            padding: 11px 17px;
-            border-radius: 8px;
+            padding: 0 15px;
 
             cursor: pointer;
+        }
+
+
+        /* =========================
+           UPDATES
+        ========================== */
+
+        .updates-section {
+            padding: 0 0 35px;
+        }
+
+        .updates {
+            background: white;
+
+            border: 1px solid #e5e9f0;
+            border-radius: 15px;
+
+            overflow: hidden;
+        }
+
+        .update {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 13px 17px;
+
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .update:last-child {
+            border-bottom: none;
+        }
+
+        .update-title {
+            font-size: 12px;
             font-weight: 700;
         }
+
+        .update-date {
+            color: #667085;
+            font-size: 10px;
+        }
+
 
         /* =========================
            FOOTER
         ========================== */
 
         footer {
-            background: #0f172a;
+            background: #101828;
             color: white;
-            margin-top: 20px;
+
+            padding-top: 28px;
         }
 
-        .footer-container {
-            max-width: 1150px;
-            margin: auto;
+        .footer-content {
+            display: flex;
 
-            padding: 50px 20px 25px;
+            justify-content: space-between;
 
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            gap: 30px;
+
+            padding-bottom: 25px;
+        }
+
+        .footer-brand {
+            max-width: 330px;
+        }
+
+        .footer-brand .logo {
+            color: white;
         }
 
         .footer-brand p {
-            color: #94a3b8;
-            font-size: 13px;
-            max-width: 300px;
-            margin-top: 12px;
+            color: #98a2b3;
+
+            font-size: 11px;
+
+            margin-top: 10px;
         }
 
-        .footer-column h4 {
-            margin-bottom: 15px;
-            font-size: 14px;
+        .footer-links {
+            display: flex;
+            gap: 35px;
         }
 
-        .footer-column a {
-            display: block;
-            color: #94a3b8;
-            font-size: 13px;
+        .footer-links div h4 {
+            font-size: 12px;
             margin-bottom: 9px;
         }
 
-        .footer-column a:hover {
-            color: white;
+        .footer-links a {
+            display: block;
+
+            color: #98a2b3;
+
+            font-size: 11px;
+
+            margin-bottom: 6px;
         }
 
         .copyright {
-            border-top: 1px solid #1e293b;
+            border-top: 1px solid #1d2939;
 
             text-align: center;
-            padding: 18px 20px;
 
-            color: #64748b;
-            font-size: 12px;
+            padding: 13px;
+
+            color: #667085;
+
+            font-size: 10px;
         }
+
 
         /* =========================
-           TOAST
+           MESSAGE
         ========================== */
 
-        .toast {
+        .message {
             position: fixed;
-            bottom: 25px;
+
             left: 50%;
+            bottom: 20px;
 
-            transform: translateX(-50%) translateY(100px);
+            transform:
+                translateX(-50%)
+                translateY(70px);
 
-            background: #111827;
+            background: #101828;
             color: white;
 
-            padding: 12px 18px;
-            border-radius: 10px;
+            padding: 11px 17px;
 
-            font-size: 13px;
+            border-radius: 9px;
+
+            font-size: 12px;
 
             opacity: 0;
-            transition: 0.3s;
 
-            z-index: 5000;
+            transition: 0.25s;
+
+            z-index: 3000;
         }
 
-        .toast.show {
+        .message.show {
             opacity: 1;
-            transform: translateX(-50%) translateY(0);
+
+            transform:
+                translateX(-50%)
+                translateY(0);
         }
+
 
         /* =========================
            MOBILE
         ========================== */
 
-        @media (max-width: 900px) {
-
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-
-            .quick-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .university-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .resource-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 2fr 1fr 1fr;
-            }
+        @media (max-width: 750px) {
 
             .nav-links {
                 display: none;
             }
 
-            .menu-btn {
+            .mobile-menu {
                 display: block;
+            }
+
+            .hero {
+                padding-top: 42px;
+            }
+
+            .subjects {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .university-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .university-search {
+                max-width: none;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                gap: 45px;
             }
         }
 
-        @media (max-width: 600px) {
 
-            .hero {
-                padding: 55px 15px;
-            }
+        @media (max-width: 450px) {
 
-            .hero-container {
-                gap: 30px;
+            .container {
+                width: 94%;
             }
 
             .hero h1 {
-                font-size: 38px;
+                font-size: 31px;
             }
 
-            .hero-text {
-                font-size: 15px;
+            .hero p {
+                font-size: 13px;
             }
 
-            .search-box {
-                flex-direction: column;
-                padding: 8px;
+            .search button {
+                padding: 10px 12px;
             }
 
-            .search-box input {
-                width: 100%;
+            .subjects {
+                gap: 7px;
             }
 
-            .search-btn {
-                width: 100%;
+            .subject {
+                padding: 11px 3px;
             }
 
-            .hero-stats {
-                gap: 20px;
+            .subject-icon {
+                font-size: 19px;
             }
 
-            .quick-grid,
-            .university-grid,
-            .resource-grid {
+            .subject span {
+                font-size: 10px;
+            }
+
+            .subject small {
+                font-size: 8px;
+            }
+
+            .feature-grid {
                 grid-template-columns: 1fr;
             }
 
-            .section {
-                padding: 50px 15px;
+            .feature-card {
+                padding: 18px;
             }
 
-            .section-header {
-                align-items: start;
-                flex-direction: column;
-            }
-
-            .calendar {
-                overflow-x: auto;
-            }
-
-            .calendar-row {
-                min-width: 650px;
-            }
-
-            .test-section {
-                grid-template-columns: 1fr;
-                padding: 28px 20px;
-            }
-
-            .newsletter {
-                padding: 30px 18px;
-            }
-
-            .email-box {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .email-box button {
-                width: 100%;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer-brand {
-                grid-column: 1 / -1;
+            .footer-links {
+                gap: 25px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      NAVBAR
 ========================= -->
 
-<header class="navbar">
+<header>
 
-    <div class="nav-container">
+    <div class="container navbar">
 
         <a href="#" class="logo">
-            <div class="logo-icon">🎓</div>
+
+            <div class="logo-icon">
+                🎓
+            </div>
+
             AdmissionMate
+
         </a>
+
 
         <nav class="nav-links">
 
-            <a href="#home">Home</a>
+            <a href="#preparation">
+                Preparation
+            </a>
 
-            <a href="#universities">Universities</a>
+            <a href="#questions">
+                Questions
+            </a>
 
-            <a href="#calendar">Calendar</a>
+            <a href="#tests">
+                Model Test
+            </a>
 
-            <a href="#questions">Questions</a>
+            <a href="#universities">
+                Universities
+            </a>
 
-            <a href="#tests">Tests</a>
-
-            <a href="#resources">Resources</a>
-
-            <a href="#" class="login-btn" onclick="showMessage('Login feature আসছে!')">
-                Login
+            <a href="#updates">
+                Updates
             </a>
 
         </nav>
 
-        <button class="menu-btn" onclick="showMessage('Mobile menu শীঘ্রই আসবে!')">
+
+        <button
+            class="mobile-menu"
+            onclick="showMessage('Menu শীঘ্রই আসছে!')"
+        >
             ☰
         </button>
 
@@ -918,560 +773,343 @@
 </header>
 
 
+
 <!-- =========================
      HERO
 ========================= -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-    <div class="hero-container">
+    <div class="container">
 
-        <div>
-
-            <span class="hero-badge">
-                🚀 Admission Preparation Platform
-            </span>
-
-            <h1>
-                তোমার Admission Journey-এর
-                <span>একজন Smart Assistant</span>
-            </h1>
-
-            <p class="hero-text">
-                বাংলাদেশের বিশ্ববিদ্যালয় ভর্তি তথ্য, admission calendar,
-                previous questions, model test এবং study resources—
-                সবকিছু এক জায়গায়।
-            </p>
-
-            <div class="search-box">
-
-                <input
-                    id="universitySearch"
-                    type="text"
-                    placeholder="🔍 University খুঁজুন..."
-                    onkeyup="searchUniversity()"
-                >
-
-                <button class="search-btn" onclick="searchUniversity()">
-                    Search
-                </button>
-
-            </div>
-
-            <div class="hero-stats">
-
-                <div class="stat">
-                    <strong>50+</strong>
-                    <small>Universities</small>
-                </div>
-
-                <div class="stat">
-                    <strong>5K+</strong>
-                    <small>Questions</small>
-                </div>
-
-                <div class="stat">
-                    <strong>100+</strong>
-                    <small>Mock Tests</small>
-                </div>
-
-            </div>
-
-        </div>
+        <span class="hero-badge">
+            🎯 University Admission Preparation
+        </span>
 
 
-        <div class="hero-card">
+        <h1>
 
-            <div class="hero-card-header">
+            Prepare Smart.
+            <span>Get Ready.</span>
 
-                <h3>📅 Upcoming Deadlines</h3>
-
-                <span class="live">● LIVE</span>
-
-            </div>
+        </h1>
 
 
-            <div class="deadline">
+        <p>
 
-                <div>
-                    <div class="uni-name">Dhaka University</div>
-                    <div class="uni-unit">Science Unit</div>
-                </div>
+            বাংলাদেশের University Admission-এর জন্য
+            preparation, practice ও test—সব এক জায়গায়।
 
-                <div class="date">
-                    <strong>10 Dec</strong>
-                    <small>Deadline</small>
-                </div>
-
-            </div>
+        </p>
 
 
-            <div class="deadline">
+        <div class="search">
 
-                <div>
-                    <div class="uni-name">NSTU</div>
-                    <div class="uni-unit">A Unit</div>
-                </div>
+            <input
+                id="mainSearch"
+                type="text"
+                placeholder="🔍 University, subject বা topic খুঁজুন..."
+            >
 
-                <div class="date">
-                    <strong>15 Mar</strong>
-                    <small>Deadline</small>
-                </div>
-
-            </div>
-
-
-            <div class="deadline">
-
-                <div>
-                    <div class="uni-name">Chittagong University</div>
-                    <div class="uni-unit">A Unit</div>
-                </div>
-
-                <div class="date">
-                    <strong>20 Mar</strong>
-                    <small>Deadline</small>
-                </div>
-
-            </div>
-
-
-            <div class="deadline">
-
-                <div>
-                    <div class="uni-name">Rajshahi University</div>
-                    <div class="uni-unit">A Unit</div>
-                </div>
-
-                <div class="date">
-                    <strong>25 Mar</strong>
-                    <small>Deadline</small>
-                </div>
-
-            </div>
+            <button onclick="mainSearch()">
+                Search
+            </button>
 
         </div>
 
     </div>
 
 </section>
+
 
 
 <!-- =========================
-     QUICK ACCESS
+     PREPARATION
 ========================= -->
 
-<section class="section">
+<section
+    class="main-section"
+    id="preparation"
+>
 
-    <div class="section-header">
+    <div class="container">
 
-        <div>
-            <h2 class="section-title">Quick Access</h2>
+        <div class="section-title">
 
-            <p class="section-subtitle">
-                প্রয়োজনীয় admission tools এক ক্লিকেই
-            </p>
-        </div>
-
-    </div>
-
-
-    <div class="quick-grid">
-
-        <div class="quick-card" onclick="goTo('universities')">
-
-            <div class="quick-icon">🎓</div>
-
-            <h3>Universities</h3>
+            <h2>
+                📚 Preparation Center
+            </h2>
 
             <p>
-                বিশ্ববিদ্যালয় ও admission information দেখুন।
+                আপনার preparation শুরু করুন
             </p>
 
         </div>
 
 
-        <div class="quick-card" onclick="goTo('calendar')">
+        <div class="preparation-card">
 
-            <div class="quick-icon">📅</div>
-
-            <h3>Admission Calendar</h3>
-
-            <p>
-                Application ও exam dates এক জায়গায়।
-            </p>
-
-        </div>
+            <div class="subjects">
 
 
-        <div class="quick-card" onclick="goTo('questions')">
+                <div
+                    class="subject"
+                    onclick="subject('Physics')"
+                >
 
-            <div class="quick-icon">📝</div>
+                    <div class="subject-icon">
+                        ⚛️
+                    </div>
 
-            <h3>Question Bank</h3>
+                    <span>
+                        Physics
+                    </span>
 
-            <p>
-                Previous question ও practice করুন।
-            </p>
+                    <small>
+                        Practice
+                    </small>
 
-        </div>
+                </div>
 
 
-        <div class="quick-card" onclick="goTo('tests')">
+                <div
+                    class="subject"
+                    onclick="subject('Chemistry')"
+                >
 
-            <div class="quick-icon">🧪</div>
+                    <div class="subject-icon">
+                        🧪
+                    </div>
 
-            <h3>Model Tests</h3>
+                    <span>
+                        Chemistry
+                    </span>
 
-            <p>
-                Real exam-এর মতো mock test দিন।
-            </p>
+                    <small>
+                        Practice
+                    </small>
+
+                </div>
+
+
+                <div
+                    class="subject"
+                    onclick="subject('Mathematics')"
+                >
+
+                    <div class="subject-icon">
+                        📐
+                    </div>
+
+                    <span>
+                        Mathematics
+                    </span>
+
+                    <small>
+                        Practice
+                    </small>
+
+                </div>
+
+
+                <div
+                    class="subject"
+                    onclick="subject('Biology')"
+                >
+
+                    <div class="subject-icon">
+                        🧬
+                    </div>
+
+                    <span>
+                        Biology
+                    </span>
+
+                    <small>
+                        Practice
+                    </small>
+
+                </div>
+
+
+                <div
+                    class="subject"
+                    onclick="subject('English')"
+                >
+
+                    <div class="subject-icon">
+                        🇬🇧
+                    </div>
+
+                    <span>
+                        English
+                    </span>
+
+                    <small>
+                        Practice
+                    </small>
+
+                </div>
+
+
+                <div
+                    class="subject"
+                    onclick="subject('Bangla')"
+                >
+
+                    <div class="subject-icon">
+                        বাংলা
+                    </div>
+
+                    <span>
+                        Bangla
+                    </span>
+
+                    <small>
+                        Practice
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="primary-btn"
+                onclick="startPreparation()"
+            >
+                Start Preparation →
+            </button>
 
         </div>
 
     </div>
 
 </section>
+
+
+
+<!-- =========================
+     QUESTIONS + TEST
+========================= -->
+
+<section class="feature-section">
+
+    <div class="container">
+
+        <div class="feature-grid">
+
+
+            <!-- QUESTION BANK -->
+
+            <div
+                class="feature-card"
+                id="questions"
+            >
+
+                <div class="feature-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Question Bank
+                </h3>
+
+                <p>
+                    University, subject, chapter ও year অনুযায়ী
+                    admission questions practice করুন।
+                </p>
+
+                <a
+                    href="#"
+                    class="feature-link"
+                    onclick="openFeature('Question Bank'); return false;"
+                >
+                    Practice Questions →
+                </a>
+
+            </div>
+
+
+            <!-- MODEL TEST -->
+
+            <div
+                class="feature-card"
+                id="tests"
+            >
+
+                <div class="feature-icon">
+                    🧪
+                </div>
+
+                <h3>
+                    Model Test
+                </h3>
+
+                <p>
+                    Time-based MCQ test দিয়ে নিজের preparation
+                    যাচাই করুন।
+                </p>
+
+                <a
+                    href="#"
+                    class="feature-link"
+                    onclick="openFeature('Model Test'); return false;"
+                >
+                    Start Test →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 <!-- =========================
      UNIVERSITIES
 ========================= -->
 
-<section class="section" id="universities">
+<section
+    class="university-section"
+    id="universities"
+>
 
-    <div class="section-header">
+    <div class="container">
 
-        <div>
+        <div class="university-box">
 
-            <h2 class="section-title">
-                Popular Universities
-            </h2>
+            <div>
 
-            <p class="section-subtitle">
-                জনপ্রিয় বিশ্ববিদ্যালয়ের admission information
-            </p>
+                <h2>
+                    🎓 Universities
+                </h2>
 
-        </div>
-
-        <a href="#" class="view-all">
-            View All →
-        </a>
-
-    </div>
-
-
-    <div class="university-grid" id="universityGrid">
-
-
-        <!-- DU -->
-
-        <div class="university-card" data-name="dhaka university du">
-
-            <div class="uni-top">
-
-                <div class="uni-logo">🏛️</div>
-
-                <div>
-
-                    <h3>Dhaka University</h3>
-
-                    <div class="location">
-                        📍 Dhaka
-                    </div>
-
-                </div>
+                <p>
+                    University admission information খুঁজে নিন।
+                </p>
 
             </div>
 
 
-            <div class="uni-info">
+            <div class="university-search">
 
-                <div class="info-box">
+                <input
+                    id="universityInput"
+                    type="text"
+                    placeholder="Search University..."
+                >
 
-                    <small>Application</small>
-
-                    <strong>Open</strong>
-
-                </div>
-
-                <div class="info-box">
-
-                    <small>Unit</small>
-
-                    <strong>A, B, C, D</strong>
-
-                </div>
+                <button
+                    onclick="findUniversity()"
+                >
+                    🔍
+                </button>
 
             </div>
-
-
-            <button
-                class="details-btn"
-                onclick="showMessage('Dhaka University details শীঘ্রই আসবে!')"
-            >
-                View Details →
-            </button>
-
-        </div>
-
-
-        <!-- NSTU -->
-
-        <div class="university-card" data-name="noakhali science technology university nstu">
-
-            <div class="uni-top">
-
-                <div class="uni-logo">🎓</div>
-
-                <div>
-
-                    <h3>NSTU</h3>
-
-                    <div class="location">
-                        📍 Noakhali
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="uni-info">
-
-                <div class="info-box">
-
-                    <small>Application</small>
-
-                    <strong>Open</strong>
-
-                </div>
-
-                <div class="info-box">
-
-                    <small>Unit</small>
-
-                    <strong>A, B, C</strong>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="details-btn"
-                onclick="showMessage('NSTU details শীঘ্রই আসবে!')"
-            >
-                View Details →
-            </button>
-
-        </div>
-
-
-        <!-- CU -->
-
-        <div class="university-card" data-name="chittagong university cu">
-
-            <div class="uni-top">
-
-                <div class="uni-logo">🏫</div>
-
-                <div>
-
-                    <h3>Chittagong University</h3>
-
-                    <div class="location">
-                        📍 Chattogram
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="uni-info">
-
-                <div class="info-box">
-
-                    <small>Application</small>
-
-                    <strong>Open</strong>
-
-                </div>
-
-                <div class="info-box">
-
-                    <small>Unit</small>
-
-                    <strong>A, B, C, D</strong>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="details-btn"
-                onclick="showMessage('CU details শীঘ্রই আসবে!')"
-            >
-                View Details →
-            </button>
-
-        </div>
-
-
-        <!-- RU -->
-
-        <div class="university-card" data-name="rajshahi university ru">
-
-            <div class="uni-top">
-
-                <div class="uni-logo">🏛️</div>
-
-                <div>
-
-                    <h3>Rajshahi University</h3>
-
-                    <div class="location">
-                        📍 Rajshahi
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="uni-info">
-
-                <div class="info-box">
-
-                    <small>Application</small>
-
-                    <strong>Open</strong>
-
-                </div>
-
-                <div class="info-box">
-
-                    <small>Unit</small>
-
-                    <strong>A, B, C</strong>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="details-btn"
-                onclick="showMessage('RU details শীঘ্রই আসবে!')"
-            >
-                View Details →
-            </button>
-
-        </div>
-
-
-        <!-- JU -->
-
-        <div class="university-card" data-name="jahangirnagar university ju">
-
-            <div class="uni-top">
-
-                <div class="uni-logo">🎓</div>
-
-                <div>
-
-                    <h3>Jahangirnagar University</h3>
-
-                    <div class="location">
-                        📍 Savar
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="uni-info">
-
-                <div class="info-box">
-
-                    <small>Application</small>
-
-                    <strong>Coming</strong>
-
-                </div>
-
-                <div class="info-box">
-
-                    <small>Unit</small>
-
-                    <strong>A, B, C</strong>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="details-btn"
-                onclick="showMessage('JU details শীঘ্রই আসবে!')"
-            >
-                View Details →
-            </button>
-
-        </div>
-
-
-        <!-- BUET -->
-
-        <div class="university-card" data-name="buet bangladesh university engineering technology">
-
-            <div class="uni-top">
-
-                <div class="uni-logo">⚙️</div>
-
-                <div>
-
-                    <h3>BUET</h3>
-
-                    <div class="location">
-                        📍 Dhaka
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="uni-info">
-
-                <div class="info-box">
-
-                    <small>Admission</small>
-
-                    <strong>Engineering</strong>
-
-                </div>
-
-                <div class="info-box">
-
-                    <small>Type</small>
-
-                    <strong>Public</strong>
-
-                </div>
-
-            </div>
-
-
-            <button
-                class="details-btn"
-                onclick="showMessage('BUET details শীঘ্রই আসবে!')"
-            >
-                View Details →
-            </button>
 
         </div>
 
@@ -1480,229 +1118,69 @@
 </section>
 
 
-<!-- =========================
-     CALENDAR
-========================= -->
-
-<section class="section" id="calendar">
-
-    <div class="section-header">
-
-        <div>
-
-            <h2 class="section-title">
-                📅 Admission Calendar
-            </h2>
-
-            <p class="section-subtitle">
-                Important admission dates
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="calendar">
-
-        <div class="calendar-row calendar-head">
-
-            <span>University</span>
-            <span>Application</span>
-            <span>Exam Date</span>
-            <span>Status</span>
-
-        </div>
-
-
-        <div class="calendar-row">
-
-            <strong>Dhaka University</strong>
-            <span>10 Dec</span>
-            <span>25 Dec</span>
-            <span class="status">Upcoming</span>
-
-        </div>
-
-
-        <div class="calendar-row">
-
-            <strong>NSTU</strong>
-            <span>15 Mar</span>
-            <span>05 Apr</span>
-            <span class="status">Upcoming</span>
-
-        </div>
-
-
-        <div class="calendar-row">
-
-            <strong>Chittagong University</strong>
-            <span>20 Mar</span>
-            <span>10 Apr</span>
-            <span class="status">Upcoming</span>
-
-        </div>
-
-
-        <div class="calendar-row">
-
-            <strong>Rajshahi University</strong>
-            <span>25 Mar</span>
-            <span>15 Apr</span>
-            <span class="status">Upcoming</span>
-
-        </div>
-
-    </div>
-
-</section>
-
 
 <!-- =========================
-     QUESTION BANK
+     UPDATES
 ========================= -->
 
-<section class="section" id="questions">
+<section
+    class="updates-section"
+    id="updates"
+>
 
-    <div class="section-header">
+    <div class="container">
 
-        <div>
-
-            <h2 class="section-title">
-                📝 Question Bank
-            </h2>
-
-            <p class="section-subtitle">
-                Previous question practice করুন
-            </p>
-
-        </div>
-
-        <a href="#" class="view-all">
-            Explore Questions →
-        </a>
-
-    </div>
-
-
-    <div class="resource-grid">
-
-        <div class="resource-card">
-
-            <h3>⚛️ Physics</h3>
-
-            <p>
-                University admission-এর গুরুত্বপূর্ণ Physics MCQ।
-            </p>
-
-            <a
-                href="#"
-                class="resource-link"
-                onclick="showMessage('Physics Question Bank শীঘ্রই আসবে!'); return false;"
-            >
-                Practice Now →
-            </a>
-
-        </div>
-
-
-        <div class="resource-card">
-
-            <h3>🧪 Chemistry</h3>
-
-            <p>
-                Chemistry previous questions এবং practice MCQ।
-            </p>
-
-            <a
-                href="#"
-                class="resource-link"
-                onclick="showMessage('Chemistry Question Bank শীঘ্রই আসবে!'); return false;"
-            >
-                Practice Now →
-            </a>
-
-        </div>
-
-
-        <div class="resource-card">
-
-            <h3>📐 Mathematics</h3>
-
-            <p>
-                Math admission questions এবং গুরুত্বপূর্ণ concepts।
-            </p>
-
-            <a
-                href="#"
-                class="resource-link"
-                onclick="showMessage('Math Question Bank শীঘ্রই আসবে!'); return false;"
-            >
-                Practice Now →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     MODEL TEST
-========================= -->
-
-<section class="section" id="tests">
-
-    <div class="test-section">
-
-        <div>
-
-            <span class="hero-badge">
-                🧪 Practice Mode
-            </span>
+        <div class="section-title">
 
             <h2>
-                Real Exam-এর মতো
-                Model Test দিন
+                📢 Latest Updates
             </h2>
 
             <p>
-                Timer, MCQ, instant result এবং detailed performance
-                analysis—সবকিছু একসাথে।
+                গুরুত্বপূর্ণ admission updates
             </p>
-
-            <button
-                class="primary-btn"
-                onclick="startTest()"
-            >
-                Start Free Test →
-            </button>
 
         </div>
 
 
-        <div class="test-preview">
+        <div class="updates">
 
-            <div class="test-question">
-                Q. Which quantity has both magnitude and direction?
+            <div class="update">
+
+                <span class="update-title">
+                    🔔 Admission notice updates
+                </span>
+
+                <span class="update-date">
+                    Coming Soon
+                </span>
+
             </div>
 
-            <div class="option">
-                A. Mass
+
+            <div class="update">
+
+                <span class="update-title">
+                    📅 Application deadline updates
+                </span>
+
+                <span class="update-date">
+                    Coming Soon
+                </span>
+
             </div>
 
-            <div class="option">
-                B. Temperature
-            </div>
 
-            <div class="option">
-                C. Velocity
-            </div>
+            <div class="update">
 
-            <div class="option">
-                D. Time
+                <span class="update-title">
+                    📢 Important admission information
+                </span>
+
+                <span class="update-date">
+                    Coming Soon
+                </span>
+
             </div>
 
         </div>
@@ -1711,128 +1189,6 @@
 
 </section>
 
-
-<!-- =========================
-     RESOURCES
-========================= -->
-
-<section class="section" id="resources">
-
-    <div class="section-header">
-
-        <div>
-
-            <h2 class="section-title">
-                📚 Study Resources
-            </h2>
-
-            <p class="section-subtitle">
-                Admission preparation-এর জন্য useful resources
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="resource-grid">
-
-
-        <div class="resource-card">
-
-            <h3>📄 Formula Sheets</h3>
-
-            <p>
-                Physics ও Mathematics-এর গুরুত্বপূর্ণ formula।
-            </p>
-
-            <a
-                href="#"
-                class="resource-link"
-                onclick="showMessage('Formula Sheet শীঘ্রই আসবে!'); return false;"
-            >
-                Open Resource →
-            </a>
-
-        </div>
-
-
-        <div class="resource-card">
-
-            <h3>📖 Previous Questions</h3>
-
-            <p>
-                বিভিন্ন university-এর previous admission questions।
-            </p>
-
-            <a
-                href="#"
-                class="resource-link"
-                onclick="showMessage('Previous Questions শীঘ্রই আসবে!'); return false;"
-            >
-                Browse Questions →
-            </a>
-
-        </div>
-
-
-        <div class="resource-card">
-
-            <h3>🗓️ Study Planner</h3>
-
-            <p>
-                নিজের preparation-এর জন্য daily study plan তৈরি করুন।
-            </p>
-
-            <a
-                href="#"
-                class="resource-link"
-                onclick="showMessage('Study Planner শীঘ্রই আসবে!'); return false;"
-            >
-                Create Plan →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     NEWSLETTER
-========================= -->
-
-<section class="section">
-
-    <div class="newsletter">
-
-        <h2>
-            🔔 Admission Updates মিস করবেন না
-        </h2>
-
-        <p>
-            গুরুত্বপূর্ণ admission news ও deadline সম্পর্কে update পেতে email দিন।
-        </p>
-
-
-        <div class="email-box">
-
-            <input
-                id="email"
-                type="email"
-                placeholder="Your email address"
-            >
-
-            <button onclick="subscribe()">
-                Subscribe
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
 
 
 <!-- =========================
@@ -1841,55 +1197,75 @@
 
 <footer>
 
-    <div class="footer-container">
+    <div class="container footer-content">
+
 
         <div class="footer-brand">
 
-            <div class="logo">
-                <div class="logo-icon">🎓</div>
+            <a href="#" class="logo">
+
+                <div class="logo-icon">
+                    🎓
+                </div>
+
                 AdmissionMate
-            </div>
+
+            </a>
+
 
             <p>
-                বাংলাদেশের university admission candidates-এর
-                preparation সহজ করার জন্য তৈরি একটি platform।
+
+                University Admission preparation-এর
+                জন্য একটি student-focused platform।
+
             </p>
 
         </div>
 
 
-        <div class="footer-column">
-
-            <h4>Platform</h4>
-
-            <a href="#universities">Universities</a>
-            <a href="#calendar">Admission Calendar</a>
-            <a href="#questions">Question Bank</a>
-            <a href="#tests">Model Tests</a>
-
-        </div>
+        <div class="footer-links">
 
 
-        <div class="footer-column">
+            <div>
 
-            <h4>Resources</h4>
+                <h4>
+                    Platform
+                </h4>
 
-            <a href="#resources">Study Resources</a>
-            <a href="#">Formula Sheets</a>
-            <a href="#">Previous Questions</a>
-            <a href="#">Study Planner</a>
+                <a href="#preparation">
+                    Preparation
+                </a>
 
-        </div>
+                <a href="#questions">
+                    Question Bank
+                </a>
+
+                <a href="#tests">
+                    Model Test
+                </a>
+
+            </div>
 
 
-        <div class="footer-column">
+            <div>
 
-            <h4>Company</h4>
+                <h4>
+                    Explore
+                </h4>
 
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
+                <a href="#universities">
+                    Universities
+                </a>
+
+                <a href="#updates">
+                    Updates
+                </a>
+
+                <a href="#">
+                    About
+                </a>
+
+            </div>
 
         </div>
 
@@ -1898,16 +1274,22 @@
 
     <div class="copyright">
 
-        © 2026 AdmissionMate. All rights reserved.
+        © 2026 AdmissionMate — University Admission Preparation
 
     </div>
 
 </footer>
 
 
-<!-- Toast -->
 
-<div class="toast" id="toast"></div>
+<!-- MESSAGE -->
+
+<div
+    class="message"
+    id="message"
+>
+</div>
+
 
 
 <!-- =========================
@@ -1916,119 +1298,86 @@
 
 <script>
 
-    function showMessage(message) {
 
-        const toast = document.getElementById("toast");
+    /* Show small notification */
 
-        toast.textContent = message;
+    function showMessage(text) {
 
-        toast.classList.add("show");
+        const box =
+            document.getElementById("message");
 
-        setTimeout(function () {
+        box.textContent = text;
 
-            toast.classList.remove("show");
+        box.classList.add("show");
 
-        }, 2500);
+
+        setTimeout(function() {
+
+            box.classList.remove("show");
+
+        }, 2200);
 
     }
 
 
-    function goTo(id) {
 
-        const section = document.getElementById(id);
+    /* Subject click */
 
-        if (section) {
+    function subject(name) {
 
-            section.scrollIntoView({
+        showMessage(
+            name + " Preparation শীঘ্রই চালু হবে! 📚"
+        );
+
+    }
+
+
+
+    /* Start preparation */
+
+    function startPreparation() {
+
+        document
+            .getElementById("preparation")
+            .scrollIntoView({
                 behavior: "smooth"
             });
 
-        }
+        showMessage(
+            "Preparation Center থেকে subject নির্বাচন করুন 📚"
+        );
 
     }
 
 
-    function searchUniversity() {
 
-        const input =
-            document.getElementById("universitySearch")
-            .value
-            .toLowerCase()
-            .trim();
+    /* Question / Test */
 
-        const cards =
-            document.querySelectorAll(".university-card");
+    function openFeature(name) {
 
-        let found = false;
+        showMessage(
+            name + " system শীঘ্রই চালু হবে! 🚀"
+        );
 
-        cards.forEach(function(card) {
-
-            const name =
-                card.getAttribute("data-name")
-                .toLowerCase();
-
-            if (name.includes(input)) {
-
-                card.style.display = "block";
-
-                found = true;
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
+    }
 
 
-        if (input === "") {
 
-            cards.forEach(function(card) {
+    /* Main search */
 
-                card.style.display = "block";
+    function mainSearch() {
 
-            });
-
-            return;
-
-        }
-
-
-        if (!found) {
-
-            showMessage("University পাওয়া যায়নি!");
-
-        } else {
-
+        const value =
             document
-                .getElementById("universities")
-                .scrollIntoView({
-                    behavior: "smooth"
-                });
+                .getElementById("mainSearch")
+                .value
+                .trim();
 
-        }
+        if (value === "") {
 
-    }
-
-
-    function startTest() {
-
-        showMessage(
-            "Model Test system খুব শীঘ্রই চালু হবে! 🧪"
-        );
-
-    }
-
-
-    function subscribe() {
-
-        const email =
-            document.getElementById("email").value.trim();
-
-        if (email === "") {
-
-            showMessage("আগে আপনার email লিখুন!");
+            showMessage(
+                "আগে কিছু search করুন 🔍"
+            );
 
             return;
 
@@ -2036,15 +1385,43 @@
 
 
         showMessage(
-            "Thanks! Admission updates-এর জন্য subscribed. 🔔"
+            '"' + value + '" এর জন্য search system শীঘ্রই আসবে!"
         );
 
-        document.getElementById("email").value = "";
+    }
+
+
+
+    /* University search */
+
+    function findUniversity() {
+
+        const value =
+            document
+                .getElementById("universityInput")
+                .value
+                .trim();
+
+        if (value === "") {
+
+            showMessage(
+                "University-এর নাম লিখুন 🔍"
+            );
+
+            return;
+
+        }
+
+
+        showMessage(
+            '"' + value + '" university search শীঘ্রই চালু হবে!"
+        );
 
     }
+
 
 </script>
 
+
 </body>
 </html>
-```
