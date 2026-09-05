@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AdmissionMate | University Admission Preparation</title>
-
-    <meta name="description"
-          content="বাংলাদেশের বিশ্ববিদ্যালয় ভর্তি প্রস্তুতির জন্য Preparation, Question Bank, Model Test এবং University Information এক জায়গায়।">
+    <meta name="description" content="বাংলাদেশের বিশ্ববিদ্যালয় ভর্তি প্রস্তুতির জন্য Preparation, Question Bank, Model Test এবং University Information এক জায়গায়।">
 
     <style>
-
         /* =========================
-           BASIC
+           BASIC STYLES
         ========================== */
-
         * {
             margin: 0;
             padding: 0;
@@ -37,8 +32,7 @@
             color: inherit;
         }
 
-        button,
-        input {
+        button, input {
             font-family: inherit;
         }
 
@@ -48,13 +42,11 @@
             margin: auto;
         }
 
-
         /* =========================
            NAVBAR
         ========================== */
-
         header {
-            background: white;
+            background: #ffffff;
             border-bottom: 1px solid #e7eaf0;
             position: sticky;
             top: 0;
@@ -63,7 +55,6 @@
 
         .navbar {
             min-height: 68px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -73,7 +64,6 @@
             display: flex;
             align-items: center;
             gap: 9px;
-
             font-size: 21px;
             font-weight: 800;
             color: #155eef;
@@ -82,14 +72,11 @@
         .logo-icon {
             width: 38px;
             height: 38px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             background: #edf3ff;
             border-radius: 10px;
-
             font-size: 20px;
         }
 
@@ -103,6 +90,7 @@
             font-size: 13px;
             font-weight: 600;
             color: #4b5563;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
@@ -111,51 +99,35 @@
 
         .mobile-menu {
             display: none;
-
             border: none;
             background: transparent;
-
             font-size: 25px;
             cursor: pointer;
         }
 
-
         /* =========================
-           HERO
+           HERO SECTION
         ========================== */
-
         .hero {
             padding: 58px 0 42px;
             text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    #e4edff,
-                    transparent 55%
-                ),
-                #f6f8fc;
+            background: radial-gradient(circle at 50% 0%, #e4edff, transparent 55%), #f6f8fc;
         }
 
         .hero-badge {
             display: inline-block;
-
             padding: 6px 12px;
             border-radius: 50px;
-
             background: #e7efff;
             color: #155eef;
-
             font-size: 12px;
             font-weight: 700;
-
             margin-bottom: 13px;
         }
 
         .hero h1 {
             font-size: clamp(30px, 5vw, 45px);
             line-height: 1.15;
-
             margin-bottom: 12px;
         }
 
@@ -166,61 +138,50 @@
         .hero p {
             max-width: 600px;
             margin: auto;
-
             color: #667085;
             font-size: 14px;
-
             margin-bottom: 23px;
         }
 
         .search {
             width: 100%;
             max-width: 600px;
-
             margin: auto;
-
             display: flex;
-
-            background: white;
+            background: #ffffff;
             border: 1px solid #dfe4ec;
-
             padding: 5px;
             border-radius: 11px;
-
             box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
         }
 
         .search input {
             flex: 1;
-
             border: none;
             outline: none;
-
             padding: 11px 13px;
-
             font-size: 13px;
         }
 
         .search button {
             border: none;
             cursor: pointer;
-
             background: #155eef;
             color: white;
-
             padding: 10px 17px;
-
             border-radius: 8px;
-
             font-weight: 700;
             font-size: 13px;
+            transition: background 0.2s ease;
         }
 
+        .search button:hover {
+            background: #004eeb;
+        }
 
         /* =========================
-           MAIN PREPARATION
+           PREPARATION SECTION
         ========================== */
-
         .main-section {
             padding: 25px 0 10px;
         }
@@ -240,50 +201,36 @@
             font-size: 13px;
         }
 
-
-        /* =========================
-           PREPARATION CARD
-        ========================== */
-
         .preparation-card {
-            background: white;
-
+            background: #ffffff;
             border: 1px solid #e5e9f0;
             border-radius: 18px;
-
             padding: 23px;
-
             box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
         }
 
         .subjects {
             display: grid;
-
             grid-template-columns: repeat(6, 1fr);
-
             gap: 10px;
-
             margin-bottom: 18px;
         }
 
         .subject {
             padding: 14px 7px;
-
             text-align: center;
-
             border: 1px solid #e7eaf0;
             border-radius: 11px;
-
             background: #fafbfc;
-
             cursor: pointer;
-
-            transition: 0.2s;
+            transition: all 0.2s ease;
         }
 
         .subject:hover {
             border-color: #155eef;
             transform: translateY(-2px);
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(21, 94, 239, 0.08);
         }
 
         .subject-icon {
@@ -293,7 +240,6 @@
 
         .subject span {
             display: block;
-
             font-size: 12px;
             font-weight: 700;
         }
@@ -305,74 +251,58 @@
 
         .primary-btn {
             display: block;
-
             width: fit-content;
-
             margin: auto;
-
             border: none;
             cursor: pointer;
-
             background: #155eef;
             color: white;
-
             padding: 11px 20px;
-
             border-radius: 9px;
-
             font-size: 13px;
             font-weight: 700;
+            transition: background 0.2s ease;
         }
 
+        .primary-btn:hover {
+            background: #004eeb;
+        }
 
         /* =========================
-           TWO MAIN FEATURES
+           FEATURE SECTION
         ========================== */
-
         .feature-section {
             padding: 25px 0;
         }
 
         .feature-grid {
             display: grid;
-
             grid-template-columns: 1fr 1fr;
-
             gap: 15px;
         }
 
         .feature-card {
-            background: white;
-
+            background: #ffffff;
             border: 1px solid #e5e9f0;
             border-radius: 16px;
-
             padding: 22px;
-
-            transition: 0.2s;
+            transition: all 0.2s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-3px);
-
-            box-shadow:
-                0 12px 30px rgba(15, 23, 42, 0.07);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.07);
         }
 
         .feature-icon {
             width: 45px;
             height: 45px;
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             background: #edf3ff;
-
             border-radius: 11px;
-
             font-size: 22px;
-
             margin-bottom: 13px;
         }
 
@@ -384,39 +314,30 @@
         .feature-card p {
             color: #667085;
             font-size: 12px;
-
             margin-bottom: 15px;
         }
 
         .feature-link {
             color: #155eef;
-
             font-size: 12px;
             font-weight: 700;
         }
 
-
         /* =========================
-           UNIVERSITY
+           UNIVERSITY SECTION
         ========================== */
-
         .university-section {
             padding: 15px 0 30px;
         }
 
         .university-box {
-            background: white;
-
+            background: #ffffff;
             border: 1px solid #e5e9f0;
             border-radius: 16px;
-
             padding: 22px;
-
             display: flex;
-
             align-items: center;
             justify-content: space-between;
-
             gap: 20px;
         }
 
@@ -432,65 +353,53 @@
 
         .university-search {
             display: flex;
-
             width: 100%;
             max-width: 350px;
-
             border: 1px solid #dfe4ec;
-
             border-radius: 9px;
-
             overflow: hidden;
         }
 
         .university-search input {
             flex: 1;
-
             border: none;
             outline: none;
-
             padding: 10px;
             font-size: 12px;
         }
 
         .university-search button {
             border: none;
-
             background: #155eef;
             color: white;
-
             padding: 0 15px;
-
             cursor: pointer;
+            transition: background 0.2s ease;
         }
 
+        .university-search button:hover {
+            background: #004eeb;
+        }
 
         /* =========================
-           UPDATES
+           UPDATES SECTION
         ========================== */
-
         .updates-section {
             padding: 0 0 35px;
         }
 
         .updates {
-            background: white;
-
+            background: #ffffff;
             border: 1px solid #e5e9f0;
             border-radius: 15px;
-
             overflow: hidden;
         }
 
         .update {
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             padding: 13px 17px;
-
             border-bottom: 1px solid #edf0f4;
         }
 
@@ -508,25 +417,19 @@
             font-size: 10px;
         }
 
-
         /* =========================
            FOOTER
         ========================== */
-
         footer {
             background: #101828;
             color: white;
-
             padding-top: 28px;
         }
 
         .footer-content {
             display: flex;
-
             justify-content: space-between;
-
             gap: 30px;
-
             padding-bottom: 25px;
         }
 
@@ -540,9 +443,7 @@
 
         .footer-brand p {
             color: #98a2b3;
-
             font-size: 11px;
-
             margin-top: 10px;
         }
 
@@ -558,72 +459,52 @@
 
         .footer-links a {
             display: block;
-
             color: #98a2b3;
-
             font-size: 11px;
-
             margin-bottom: 6px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
         }
 
         .copyright {
             border-top: 1px solid #1d2939;
-
             text-align: center;
-
             padding: 13px;
-
             color: #667085;
-
             font-size: 10px;
         }
 
-
         /* =========================
-           MESSAGE
+           MESSAGE / TOAST NOTIFICATION
         ========================== */
-
         .message {
             position: fixed;
-
             left: 50%;
             bottom: 20px;
-
-            transform:
-                translateX(-50%)
-                translateY(70px);
-
+            transform: translateX(-50%) translateY(70px);
             background: #101828;
             color: white;
-
             padding: 11px 17px;
-
             border-radius: 9px;
-
             font-size: 12px;
-
             opacity: 0;
-
-            transition: 0.25s;
-
+            transition: all 0.25s ease;
             z-index: 3000;
+            pointer-events: none;
         }
 
         .message.show {
             opacity: 1;
-
-            transform:
-                translateX(-50%)
-                translateY(0);
+            transform: translateX(-50%) translateY(0);
         }
 
-
         /* =========================
-           MOBILE
+           RESPONSIVE MEDIA QUERIES
         ========================== */
-
         @media (max-width: 750px) {
-
             .nav-links {
                 display: none;
             }
@@ -658,9 +539,7 @@
             }
         }
 
-
         @media (max-width: 450px) {
-
             .container {
                 width: 94%;
             }
@@ -709,718 +588,251 @@
                 gap: 25px;
             }
         }
-
     </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
+<!-- NAVBAR -->
 <header>
-
     <div class="container navbar">
-
         <a href="#" class="logo">
-
-            <div class="logo-icon">
-                🎓
-            </div>
-
+            <div class="logo-icon">🎓</div>
             AdmissionMate
-
         </a>
 
-
         <nav class="nav-links">
-
-            <a href="#preparation">
-                Preparation
-            </a>
-
-            <a href="#questions">
-                Questions
-            </a>
-
-            <a href="#tests">
-                Model Test
-            </a>
-
-            <a href="#universities">
-                Universities
-            </a>
-
-            <a href="#updates">
-                Updates
-            </a>
-
+            <a href="#preparation">Preparation</a>
+            <a href="#questions">Questions</a>
+            <a href="#tests">Model Test</a>
+            <a href="#universities">Universities</a>
+            <a href="#updates">Updates</a>
         </nav>
 
-
-        <button
-            class="mobile-menu"
-            onclick="showMessage('Menu শীঘ্রই আসছে!')"
-        >
-            ☰
-        </button>
-
+        <button class="mobile-menu" onclick="showMessage('Menu শীঘ্রই আসছে!')">☰</button>
     </div>
-
 </header>
 
-
-
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero">
-
     <div class="container">
-
-        <span class="hero-badge">
-            🎯 University Admission Preparation
-        </span>
-
-
-        <h1>
-
-            Prepare Smart.
-            <span>Get Ready.</span>
-
-        </h1>
-
-
-        <p>
-
-            বাংলাদেশের University Admission-এর জন্য
-            preparation, practice ও test—সব এক জায়গায়।
-
-        </p>
-
+        <span class="hero-badge">🎯 University Admission Preparation</span>
+        <h1>Prepare Smart. <span>Get Ready.</span></h1>
+        <p>বাংলাদেশের University Admission-এর জন্য preparation, practice ও test—সব এক জায়গায়।</p>
 
         <div class="search">
-
-            <input
-                id="mainSearch"
-                type="text"
-                placeholder="🔍 University, subject বা topic খুঁজুন..."
-            >
-
-            <button onclick="mainSearch()">
-                Search
-            </button>
-
+            <input id="mainSearch" type="text" placeholder="🔍 University, subject বা topic খুঁজুন...">
+            <button onclick="mainSearch()">Search</button>
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- =========================
-     PREPARATION
-========================= -->
-
-<section
-    class="main-section"
-    id="preparation"
->
-
+<!-- PREPARATION -->
+<section class="main-section" id="preparation">
     <div class="container">
-
         <div class="section-title">
-
-            <h2>
-                📚 Preparation Center
-            </h2>
-
-            <p>
-                আপনার preparation শুরু করুন
-            </p>
-
+            <h2>📚 Preparation Center</h2>
+            <p>আপনার preparation শুরু করুন</p>
         </div>
-
 
         <div class="preparation-card">
-
             <div class="subjects">
-
-
-                <div
-                    class="subject"
-                    onclick="subject('Physics')"
-                >
-
-                    <div class="subject-icon">
-                        ⚛️
-                    </div>
-
-                    <span>
-                        Physics
-                    </span>
-
-                    <small>
-                        Practice
-                    </small>
-
+                <div class="subject" onclick="subject('Physics')">
+                    <div class="subject-icon">⚛️</div>
+                    <span>Physics</span>
+                    <small>Practice</small>
                 </div>
 
-
-                <div
-                    class="subject"
-                    onclick="subject('Chemistry')"
-                >
-
-                    <div class="subject-icon">
-                        🧪
-                    </div>
-
-                    <span>
-                        Chemistry
-                    </span>
-
-                    <small>
-                        Practice
-                    </small>
-
+                <div class="subject" onclick="subject('Chemistry')">
+                    <div class="subject-icon">🧪</div>
+                    <span>Chemistry</span>
+                    <small>Practice</small>
                 </div>
 
-
-                <div
-                    class="subject"
-                    onclick="subject('Mathematics')"
-                >
-
-                    <div class="subject-icon">
-                        📐
-                    </div>
-
-                    <span>
-                        Mathematics
-                    </span>
-
-                    <small>
-                        Practice
-                    </small>
-
+                <div class="subject" onclick="subject('Mathematics')">
+                    <div class="subject-icon">📐</div>
+                    <span>Mathematics</span>
+                    <small>Practice</small>
                 </div>
 
-
-                <div
-                    class="subject"
-                    onclick="subject('Biology')"
-                >
-
-                    <div class="subject-icon">
-                        🧬
-                    </div>
-
-                    <span>
-                        Biology
-                    </span>
-
-                    <small>
-                        Practice
-                    </small>
-
+                <div class="subject" onclick="subject('Biology')">
+                    <div class="subject-icon">🧬</div>
+                    <span>Biology</span>
+                    <small>Practice</small>
                 </div>
 
-
-                <div
-                    class="subject"
-                    onclick="subject('English')"
-                >
-
-                    <div class="subject-icon">
-                        🇬🇧
-                    </div>
-
-                    <span>
-                        English
-                    </span>
-
-                    <small>
-                        Practice
-                    </small>
-
+                <div class="subject" onclick="subject('English')">
+                    <div class="subject-icon">🇬🇧</div>
+                    <span>English</span>
+                    <small>Practice</small>
                 </div>
 
-
-                <div
-                    class="subject"
-                    onclick="subject('Bangla')"
-                >
-
-                    <div class="subject-icon">
-                        বাংলা
-                    </div>
-
-                    <span>
-                        Bangla
-                    </span>
-
-                    <small>
-                        Practice
-                    </small>
-
+                <div class="subject" onclick="subject('Bangla')">
+                    <div class="subject-icon">বাংলা</div>
+                    <span>Bangla</span>
+                    <small>Practice</small>
                 </div>
-
             </div>
 
-
-           <a
-               href="preparation.html"
-               class="primary-btn"
->
-               start Preparation
-           </a>
+            <button class="primary-btn" onclick="startPreparation()">Start Preparation</button>
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- =========================
-     QUESTIONS + TEST
-========================= -->
-
+<!-- QUESTIONS + TEST -->
 <section class="feature-section">
-
     <div class="container">
-
         <div class="feature-grid">
-
-
             <!-- QUESTION BANK -->
-
-            <div
-                class="feature-card"
-                id="questions"
-            >
-
-                <div class="feature-icon">
-                    📝
-                </div>
-
-                <h3>
-                    Question Bank
-                </h3>
-
-                <p>
-                    University, subject, chapter ও year অনুযায়ী
-                    admission questions practice করুন।
-                </p>
-
-                <a
-                    href="#"
-                    class="feature-link"
-                    onclick="openFeature('Question Bank'); return false;"
-                >
-                    Practice Questions →
-                </a>
-
+            <div class="feature-card" id="questions">
+                <div class="feature-icon">📝</div>
+                <h3>Question Bank</h3>
+                <p>University, subject, chapter ও year অনুযায়ী admission questions practice করুন।</p>
+                <a href="#" class="feature-link" onclick="openFeature('Question Bank'); return false;">Practice Questions →</a>
             </div>
-
 
             <!-- MODEL TEST -->
-
-            <div
-                class="feature-card"
-                id="tests"
-            >
-
-                <div class="feature-icon">
-                    🧪
-                </div>
-
-                <h3>
-                    Model Test
-                </h3>
-
-                <p>
-                    Time-based MCQ test দিয়ে নিজের preparation
-                    যাচাই করুন।
-                </p>
-
-                <a
-                    href="#"
-                    class="feature-link"
-                    onclick="openFeature('Model Test'); return false;"
-                >
-                    Start Test →
-                </a>
-
+            <div class="feature-card" id="tests">
+                <div class="feature-icon">🧪</div>
+                <h3>Model Test</h3>
+                <p>Time-based MCQ test দিয়ে নিজের preparation যাচাই করুন।</p>
+                <a href="#" class="feature-link" onclick="openFeature('Model Test'); return false;">Start Test →</a>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- =========================
-     UNIVERSITIES
-========================= -->
-
-<section
-    class="university-section"
-    id="universities"
->
-
+<!-- UNIVERSITIES -->
+<section class="university-section" id="universities">
     <div class="container">
-
         <div class="university-box">
-
             <div>
-
-                <h2>
-                    🎓 Universities
-                </h2>
-
-                <p>
-                    University admission information খুঁজে নিন।
-                </p>
-
+                <h2>🎓 Universities</h2>
+                <p>University admission information খুঁজে নিন।</p>
             </div>
-
 
             <div class="university-search">
-
-                <input
-                    id="universityInput"
-                    type="text"
-                    placeholder="Search University..."
-                >
-
-                <button
-                    onclick="findUniversity()"
-                >
-                    🔍
-                </button>
-
+                <input id="universityInput" type="text" placeholder="Search University...">
+                <button onclick="findUniversity()">🔍</button>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- =========================
-     UPDATES
-========================= -->
-
-<section
-    class="updates-section"
-    id="updates"
->
-
+<!-- UPDATES -->
+<section class="updates-section" id="updates">
     <div class="container">
-
         <div class="section-title">
-
-            <h2>
-                📢 Latest Updates
-            </h2>
-
-            <p>
-                গুরুত্বপূর্ণ admission updates
-            </p>
-
+            <h2>📢 Latest Updates</h2>
+            <p>গুরুত্বপূর্ণ admission updates</p>
         </div>
-
 
         <div class="updates">
-
             <div class="update">
-
-                <span class="update-title">
-                    🔔 Admission notice updates
-                </span>
-
-                <span class="update-date">
-                    Coming Soon
-                </span>
-
+                <span class="update-title">🔔 Admission notice updates</span>
+                <span class="update-date">Coming Soon</span>
             </div>
 
-
             <div class="update">
-
-                <span class="update-title">
-                    📅 Application deadline updates
-                </span>
-
-                <span class="update-date">
-                    Coming Soon
-                </span>
-
+                <span class="update-title">📅 Application deadline updates</span>
+                <span class="update-date">Coming Soon</span>
             </div>
 
-
             <div class="update">
-
-                <span class="update-title">
-                    📢 Important admission information
-                </span>
-
-                <span class="update-date">
-                    Coming Soon
-                </span>
-
+                <span class="update-title">📢 Important admission information</span>
+                <span class="update-date">Coming Soon</span>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
+<!-- FOOTER -->
 <footer>
-
     <div class="container footer-content">
-
-
         <div class="footer-brand">
-
             <a href="#" class="logo">
-
-                <div class="logo-icon">
-                    🎓
-                </div>
-
+                <div class="logo-icon">🎓</div>
                 AdmissionMate
-
             </a>
-
-
-            <p>
-
-                University Admission preparation-এর
-                জন্য একটি student-focused platform।
-
-            </p>
-
+            <p>University Admission preparation-এর জন্য একটি student-focused platform।</p>
         </div>
-
 
         <div class="footer-links">
-
-
             <div>
-
-                <h4>
-                    Platform
-                </h4>
-
-                <a href="#preparation">
-                    Preparation
-                </a>
-
-                <a href="#questions">
-                    Question Bank
-                </a>
-
-                <a href="#tests">
-                    Model Test
-                </a>
-
+                <h4>Platform</h4>
+                <a href="#preparation">Preparation</a>
+                <a href="#questions">Question Bank</a>
+                <a href="#tests">Model Test</a>
             </div>
 
-
             <div>
-
-                <h4>
-                    Explore
-                </h4>
-
-                <a href="#universities">
-                    Universities
-                </a>
-
-                <a href="#updates">
-                    Updates
-                </a>
-
-                <a href="#">
-                    About
-                </a>
-
+                <h4>Explore</h4>
+                <a href="#universities">Universities</a>
+                <a href="#updates">Updates</a>
+                <a href="#">About</a>
             </div>
-
         </div>
-
     </div>
-
 
     <div class="copyright">
-
         © 2026 AdmissionMate — University Admission Preparation
-
     </div>
-
 </footer>
 
+<!-- TOAST MESSAGE -->
+<div class="message" id="message"></div>
 
-
-<!-- MESSAGE -->
-
-<div
-    class="message"
-    id="message"
->
-</div>
-
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
+<!-- JAVASCRIPT -->
 <script>
-
-
-    /* Show small notification */
-
+    /* Notification Toast */
+    let toastTimeout;
     function showMessage(text) {
-
-        const box =
-            document.getElementById("message");
-
+        const box = document.getElementById("message");
         box.textContent = text;
-
         box.classList.add("show");
 
-
-        setTimeout(function() {
-
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(function() {
             box.classList.remove("show");
-
         }, 2200);
-
     }
 
-
-
-    /* Subject click */
-
+    /* Subject Selection */
     function subject(name) {
-
-        showMessage(
-            name + " Preparation শীঘ্রই চালু হবে! 📚"
-        );
-
+        showMessage(name + " Preparation শীঘ্রই চালু হবে! 📚");
     }
 
-
-
-    /* Start preparation */
-
+    /* Start Preparation Button */
     function startPreparation() {
-
-        document
-            .getElementById("preparation")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-        showMessage(
-            "Preparation Center থেকে subject নির্বাচন করুন 📚"
-        );
-
+        document.getElementById("preparation").scrollIntoView({ behavior: "smooth" });
+        showMessage("Preparation Center থেকে subject নির্বাচন করুন 📚");
     }
 
-
-
-    /* Question / Test */
-
+    /* Feature Click */
     function openFeature(name) {
-
-        showMessage(
-            name + " system শীঘ্রই চালু হবে! 🚀"
-        );
-
+        showMessage(name + " system শীঘ্রই চালু হবে! 🚀");
     }
 
-
-
-    /* Main search */
-
+    /* Main Search */
     function mainSearch() {
-
-        const value =
-            document
-                .getElementById("mainSearch")
-                .value
-                .trim();
-
+        const value = document.getElementById("mainSearch").value.trim();
         if (value === "") {
-
-            showMessage(
-                "আগে কিছু search করুন 🔍"
-            );
-
+            showMessage("আগে কিছু search করুন 🔍");
             return;
-
         }
-
-
-        showMessage(
-            '"' + value + '" এর জন্য search system শীঘ্রই আসবে!"
-        );
-
+        showMessage('"' + value + '" এর জন্য search system শীঘ্রই আসবে!');
     }
 
-
-
-    /* University search */
-
+    /* University Search */
     function findUniversity() {
-
-        const value =
-            document
-                .getElementById("universityInput")
-                .value
-                .trim();
-
+        const value = document.getElementById("universityInput").value.trim();
         if (value === "") {
-
-            showMessage(
-                "University-এর নাম লিখুন 🔍"
-            );
-
+            showMessage("University-এর নাম লিখুন 🔍");
             return;
-
         }
-
-
-        showMessage(
-            '"' + value + '" university search শীঘ্রই চালু হবে!"
-        );
-
+        showMessage('"' + value + '" university search শীঘ্রই চালু হবে!');
     }
-
-
 </script>
-
 
 </body>
 </html>
