@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -637,6 +638,7 @@
 
         <div class="preparation-card">
             <div class="subjects">
+
                 <div class="subject" onclick="subject('Physics')">
                     <div class="subject-icon">⚛️</div>
                     <span>Physics</span>
@@ -672,6 +674,7 @@
                     <span>Bangla</span>
                     <small>Practice</small>
                 </div>
+
             </div>
 
             <button class="primary-btn" onclick="startPreparation()">Start Preparation</button>
@@ -683,6 +686,7 @@
 <section class="feature-section">
     <div class="container">
         <div class="feature-grid">
+
             <!-- QUESTION BANK -->
             <div class="feature-card" id="questions">
                 <div class="feature-icon">📝</div>
@@ -698,6 +702,7 @@
                 <p>Time-based MCQ test দিয়ে নিজের preparation যাচাই করুন।</p>
                 <a href="#" class="feature-link" onclick="openFeature('Model Test'); return false;">Start Test →</a>
             </div>
+
         </div>
     </div>
 </section>
@@ -706,6 +711,7 @@
 <section class="university-section" id="universities">
     <div class="container">
         <div class="university-box">
+
             <div>
                 <h2>🎓 Universities</h2>
                 <p>University admission information খুঁজে নিন।</p>
@@ -715,6 +721,7 @@
                 <input id="universityInput" type="text" placeholder="Search University...">
                 <button onclick="findUniversity()">🔍</button>
             </div>
+
         </div>
     </div>
 </section>
@@ -722,12 +729,14 @@
 <!-- UPDATES -->
 <section class="updates-section" id="updates">
     <div class="container">
+
         <div class="section-title">
             <h2>📢 Latest Updates</h2>
             <p>গুরুত্বপূর্ণ admission updates</p>
         </div>
 
         <div class="updates">
+
             <div class="update">
                 <span class="update-title">🔔 Admission notice updates</span>
                 <span class="update-date">Coming Soon</span>
@@ -742,6 +751,7 @@
                 <span class="update-title">📢 Important admission information</span>
                 <span class="update-date">Coming Soon</span>
             </div>
+
         </div>
     </div>
 </section>
@@ -749,15 +759,18 @@
 <!-- FOOTER -->
 <footer>
     <div class="container footer-content">
+
         <div class="footer-brand">
             <a href="#" class="logo">
                 <div class="logo-icon">🎓</div>
                 AdmissionMate
             </a>
+
             <p>University Admission preparation-এর জন্য একটি student-focused platform।</p>
         </div>
 
         <div class="footer-links">
+
             <div>
                 <h4>Platform</h4>
                 <a href="#preparation">Preparation</a>
@@ -771,6 +784,7 @@
                 <a href="#updates">Updates</a>
                 <a href="#">About</a>
             </div>
+
         </div>
     </div>
 
@@ -784,54 +798,71 @@
 
 <!-- JAVASCRIPT -->
 <script>
+
     /* Notification Toast */
     let toastTimeout;
+
     function showMessage(text) {
         const box = document.getElementById("message");
+
         box.textContent = text;
         box.classList.add("show");
 
         clearTimeout(toastTimeout);
+
         toastTimeout = setTimeout(function() {
             box.classList.remove("show");
         }, 2200);
     }
 
+
     /* Subject Selection */
     function subject(name) {
-        showMessage(name + " Preparation শীঘ্রই চালু হবে! 📚");
+        window.location.href = "preparation.html?subject=" + encodeURIComponent(name);
     }
 
+
     /* Start Preparation Button */
-    function subject(name) {
-    window.location.href = "preparation.html?subject=" + encodeURIComponent(name);
-}
+    function startPreparation() {
+        window.location.href = "preparation.html";
+    }
+
 
     /* Feature Click */
     function openFeature(name) {
         showMessage(name + " system শীঘ্রই চালু হবে! 🚀");
     }
 
+
     /* Main Search */
     function mainSearch() {
+
         const value = document.getElementById("mainSearch").value.trim();
+
         if (value === "") {
             showMessage("আগে কিছু search করুন 🔍");
             return;
         }
+
         showMessage('"' + value + '" এর জন্য search system শীঘ্রই আসবে!');
     }
 
+
     /* University Search */
     function findUniversity() {
+
         const value = document.getElementById("universityInput").value.trim();
+
         if (value === "") {
             showMessage("University-এর নাম লিখুন 🔍");
             return;
         }
+
         showMessage('"' + value + '" university search শীঘ্রই চালু হবে!');
     }
+
 </script>
 
 </body>
 </html>
+```
