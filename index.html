@@ -803,10 +803,9 @@
     }
 
     /* Start Preparation Button */
-    function startPreparation() {
-        document.getElementById("preparation").scrollIntoView({ behavior: "smooth" });
-        showMessage("Preparation Center থেকে subject নির্বাচন করুন 📚");
-    }
+    function subject(name) {
+    window.location.href = "preparation.html?subject=" + encodeURIComponent(name);
+}
 
     /* Feature Click */
     function openFeature(name) {
