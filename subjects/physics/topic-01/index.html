@@ -60,6 +60,56 @@
             margin-top: 22px;
         }
 
+        /* TAB NAVIGATION STYLES */
+        .tab-navigation {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .tab-btn {
+            background: #eef3f9;
+            border: none;
+            outline: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #4a5568;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .tab-btn:hover {
+            background: #e2e8f0;
+            color: #0b2d5c;
+        }
+
+        .tab-btn.active {
+            background: #0b2d5c;
+            color: white;
+            box-shadow: 0 4px 12px rgba(11, 45, 92, 0.25);
+        }
+
+        /* TAB CONTENT SECTIONS */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .remember,
         .warning {
             padding: 14px;
@@ -233,6 +283,60 @@
             margin-bottom: 8px;
         }
 
+        /* COMMENTS SECTION */
+        .comment-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .comment-input-box textarea {
+            width: 100%;
+            height: 90px;
+            padding: 12px;
+            border: 1px solid #d5dbe5;
+            border-radius: 10px;
+            font-family: inherit;
+            resize: vertical;
+        }
+
+        .comment-input-box button {
+            align-self: flex-end;
+            background: #0b2d5c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .comment-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            border-radius: 10px;
+        }
+
+        .comment-user {
+            font-weight: bold;
+            color: #0b2d5c;
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: #334155;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 14px 10px 40px;
@@ -244,6 +348,11 @@
 
             .question {
                 font-size: 17px;
+            }
+
+            .tab-btn {
+                padding: 8px 14px;
+                font-size: 13.5px;
             }
         }
     </style>
@@ -258,83 +367,109 @@
 
 <main class="container">
 
-    <!-- Topic Header -->
+    <!-- Header & Tab Navigation -->
     <section class="card">
-        <h2 id="topicTitle"></h2>
-        <p id="chapterTitle"></p>
+        <h2 id="topicTitle" style="margin-bottom: 4px;"></h2>
+        <p id="chapterTitle" style="margin: 0; color: #64748b; font-weight: 500;"></p>
+
+        <!-- TOP NAVIGATION BUTTONS -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('concept', this)">📖 Concept</button>
+            <button class="tab-btn" onclick="switchTab('mcq', this)">📝 MCQ Practice</button>
+            <button class="tab-btn" onclick="switchTab('revision', this)">⚡ Quick Revision</button>
+            <button class="tab-btn" onclick="switchTab('comment', this)">💬 Comment</button>
+        </div>
     </section>
 
-    <!-- Concept -->
-    <section class="card">
-        <h2>📖 Concept</h2>
-        <div id="conceptArea"></div>
-    </section>
+    <!-- 1. CONCEPT TAB -->
+    <div id="tab-concept" class="tab-content active">
+        <section class="card">
+            <h2>📖 Concept</h2>
+            <div id="conceptArea"></div>
+        </section>
+    </div>
 
-    <!-- MCQ -->
-    <section class="card" id="quizCard">
+    <!-- 2. MCQ PRACTICE TAB -->
+    <div id="tab-mcq" class="tab-content">
+        <section class="card" id="quizCard">
 
-        <h2>📝 MCQ Practice</h2>
+            <h2>📝 MCQ Practice</h2>
 
-        <div class="progress-area">
-            <div id="questionCount"></div>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-area">
+                <div id="questionCount"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
             </div>
-        </div>
 
-        <div class="question-number" id="questionNumber"></div>
+            <div class="question-number" id="questionNumber"></div>
 
-        <div class="question" id="questionText"></div>
+            <div class="question" id="questionText"></div>
 
-        <div id="optionsArea"></div>
+            <div id="optionsArea"></div>
 
-        <div class="feedback" id="feedback"></div>
+            <div class="feedback" id="feedback"></div>
 
-        <div class="explanation-buttons" id="explanationButtons">
-            <button onclick="showExplanation('general')">
-                📘 General Explanation
+            <div class="explanation-buttons" id="explanationButtons">
+                <button onclick="showExplanation('general')">
+                    📘 General Explanation
+                </button>
+
+                <button onclick="showExplanation('detailed')">
+                    📖 Detailed Explanation
+                </button>
+
+                <button onclick="showExplanation('tips')">
+                    💡 Short Tips
+                </button>
+            </div>
+
+            <div class="explanation-box" id="explanationBox"></div>
+
+            <div class="reference" id="reference"></div>
+
+            <button class="next-btn" id="nextButton" onclick="nextQuestion()">
+                Next Question →
             </button>
 
-            <button onclick="showExplanation('detailed')">
-                📖 Detailed Explanation
+        </section>
+
+        <!-- Score Card inside MCQ Tab -->
+        <section class="card score" id="scoreCard">
+            <h2>🎯 Quiz Complete!</h2>
+            <div class="score-number" id="scoreNumber"></div>
+            <p id="scoreMessage"></p>
+            <button class="restart-btn" id="restartButton" onclick="restartQuiz()">
+                আবার শুরু করো
             </button>
+        </section>
+    </div>
 
-            <button onclick="showExplanation('tips')">
-                💡 Short Tips
-            </button>
-        </div>
+    <!-- 3. QUICK REVISION TAB -->
+    <div id="tab-revision" class="tab-content">
+        <section class="card">
+            <h2>⚡ Quick Revision</h2>
+            <ul class="revision-list" id="revisionList"></ul>
+        </section>
+    </div>
 
-        <div class="explanation-box" id="explanationBox"></div>
+    <!-- 4. COMMENT TAB -->
+    <div id="tab-comment" class="tab-content">
+        <section class="card">
+            <h2>💬 Topic Discussion & Comments</h2>
+            <div class="comment-input-box">
+                <textarea id="commentInput" placeholder="এই Topic নিয়ে কোনো প্রশ্ন বা মতামত থাকলে লেখো..."></textarea>
+                <button onclick="addComment()">Comment করুন</button>
+            </div>
 
-        <div class="reference" id="reference"></div>
-
-        <button class="next-btn" id="nextButton" onclick="nextQuestion()">
-            Next Question →
-        </button>
-
-    </section>
-
-    <!-- Score -->
-    <section class="card score" id="scoreCard">
-
-        <h2>🎯 Quiz Complete!</h2>
-
-        <div class="score-number" id="scoreNumber"></div>
-
-        <p id="scoreMessage"></p>
-
-        <button class="restart-btn" id="restartButton" onclick="restartQuiz()">
-            আবার শুরু করো
-        </button>
-
-    </section>
-
-    <!-- Quick Revision -->
-    <section class="card">
-        <h2>⚡ Quick Revision</h2>
-
-        <ul class="revision-list" id="revisionList"></ul>
-    </section>
+            <div class="comments-list" id="commentsList">
+                <div class="comment-item">
+                    <div class="comment-user">AdmissionMate Team</div>
+                    <div class="comment-text">এই টপিক নিয়ে কোনো কিছু বুঝতে সমস্যা হলে কমেন্ট বক্সে জানাতে পারো!</div>
+                </div>
+            </div>
+        </section>
+    </div>
 
 </main>
 
@@ -356,18 +491,34 @@ chapterTitle.textContent = topicData.chapter;
 
 
 // -------------------------
+// Tab Switching System
+// -------------------------
+
+function switchTab(tabName, btnElement) {
+    // Hide all tab content
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // Deactivate all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Show target tab content & activate button
+    document.getElementById(`tab-${tabName}`).classList.add('active');
+    btnElement.classList.add('active');
+}
+
+
+// -------------------------
 // Concept
 // -------------------------
 
 topicData.concept.sections.forEach(section => {
-
     const div = document.createElement("div");
-
     div.innerHTML = `
         <h3>${section.title}</h3>
         ${section.content}
     `;
-
     conceptArea.appendChild(div);
 });
 
@@ -377,11 +528,8 @@ topicData.concept.sections.forEach(section => {
 // -------------------------
 
 topicData.quickRevision.forEach(item => {
-
     const li = document.createElement("li");
-
     li.textContent = item;
-
     revisionList.appendChild(li);
 });
 
@@ -391,9 +539,7 @@ topicData.quickRevision.forEach(item => {
 // -------------------------
 
 function loadQuestion() {
-
     answered = false;
-
     const q = topicData.questions[currentQuestion];
 
     document.getElementById("questionNumber").textContent =
@@ -408,34 +554,21 @@ function loadQuestion() {
     document.getElementById("questionText").textContent =
         q.question;
 
-    const optionsArea =
-        document.getElementById("optionsArea");
-
+    const optionsArea = document.getElementById("optionsArea");
     optionsArea.innerHTML = "";
 
     q.options.forEach((option, index) => {
-
         const button = document.createElement("button");
-
         button.className = "option";
-
-        button.textContent =
-            `${String.fromCharCode(65 + index)}) ${option}`;
-
-        button.onclick = () =>
-            checkAnswer(index, button);
-
+        button.textContent = `${String.fromCharCode(65 + index)}) ${option}`;
+        button.onclick = () => checkAnswer(index, button);
         optionsArea.appendChild(button);
     });
 
     document.getElementById("feedback").style.display = "none";
-
     document.getElementById("explanationButtons").style.display = "none";
-
     document.getElementById("explanationBox").style.display = "none";
-
     document.getElementById("reference").textContent = "";
-
     document.getElementById("nextButton").style.display = "none";
 }
 
@@ -445,63 +578,36 @@ function loadQuestion() {
 // -------------------------
 
 function checkAnswer(selected, selectedButton) {
-
     if (answered) return;
-
     answered = true;
 
     const q = topicData.questions[currentQuestion];
+    const buttons = document.querySelectorAll(".option");
 
-    const buttons =
-        document.querySelectorAll(".option");
+    buttons.forEach(button => { button.disabled = true; });
 
-    buttons.forEach(button => {
-        button.disabled = true;
-    });
-
-    const feedback =
-        document.getElementById("feedback");
+    const feedback = document.getElementById("feedback");
 
     if (selected === q.answer) {
-
         score++;
-
         selectedButton.classList.add("correct");
-
-        feedback.className =
-            "feedback correct";
-
-        feedback.innerHTML =
-            "✅ সঠিক উত্তর! 🎉 খুব ভালো! এগিয়ে যাও।";
-
+        feedback.className = "feedback correct";
+        feedback.innerHTML = "✅ সঠিক উত্তর! 🎉 খুব ভালো! এগিয়ে যাও।";
     } else {
-
         selectedButton.classList.add("wrong");
-
         buttons[q.answer].classList.add("correct");
-
-        feedback.className =
-            "feedback wrong";
-
-        feedback.innerHTML =
-            "❌ ভুল উত্তর! 🚫 সঠিক উত্তরটি দেখে Concept-টি আরেকবার মিলিয়ে নাও।";
+        feedback.className = "feedback wrong";
+        feedback.innerHTML = "❌ ভুল উত্তর! 🚫 সঠিক উত্তরটি দেখে Concept-টি আরেকবার মিলিয়ে নাও।";
     }
 
     feedback.style.display = "block";
-
-    document.getElementById("explanationButtons")
-        .style.display = "flex";
-
+    document.getElementById("explanationButtons").style.display = "flex";
     document.getElementById("reference").innerHTML =
         `<strong>📚 Previous Question / Reference:</strong> ${q.reference}`;
-
-    document.getElementById("nextButton").style.display =
-        "inline-block";
+    document.getElementById("nextButton").style.display = "inline-block";
 
     if (currentQuestion === topicData.questions.length - 1) {
-
-        document.getElementById("nextButton").textContent =
-            "See Result →";
+        document.getElementById("nextButton").textContent = "See Result →";
     }
 }
 
@@ -511,28 +617,16 @@ function checkAnswer(selected, selectedButton) {
 // -------------------------
 
 function showExplanation(type) {
-
     const q = topicData.questions[currentQuestion];
-
-    const box =
-        document.getElementById("explanationBox");
+    const box = document.getElementById("explanationBox");
 
     if (type === "general") {
-
-        box.innerHTML =
-            `<strong>📘 General Explanation</strong><br><br>${q.general}`;
-
+        box.innerHTML = `<strong>📘 General Explanation</strong><br><br>${q.general}`;
     } else if (type === "detailed") {
-
-        box.innerHTML =
-            `<strong>📖 Detailed Explanation</strong><br><br>${q.detailed}`;
-
+        box.innerHTML = `<strong>📖 Detailed Explanation</strong><br><br>${q.detailed}`;
     } else {
-
-        box.innerHTML =
-            `<strong>💡 Short Tips</strong><br><br>${q.tips}`;
+        box.innerHTML = `<strong>💡 Short Tips</strong><br><br>${q.tips}`;
     }
-
     box.style.display = "block";
 }
 
@@ -542,20 +636,10 @@ function showExplanation(type) {
 // -------------------------
 
 function nextQuestion() {
-
     if (currentQuestion < topicData.questions.length - 1) {
-
         currentQuestion++;
-
         loadQuestion();
-
-        window.scrollTo({
-            top: document.getElementById("quizCard").offsetTop - 20,
-            behavior: "smooth"
-        });
-
     } else {
-
         showResult();
     }
 }
@@ -566,19 +650,13 @@ function nextQuestion() {
 // -------------------------
 
 function showResult() {
-
-    document.getElementById("quizCard").style.display =
-        "none";
-
-    document.getElementById("scoreCard").style.display =
-        "block";
+    document.getElementById("quizCard").style.display = "none";
+    document.getElementById("scoreCard").style.display = "block";
 
     document.getElementById("scoreNumber").textContent =
         `${score} / ${topicData.questions.length}`;
 
-    const percentage =
-        (score / topicData.questions.length) * 100;
-
+    const percentage = (score / topicData.questions.length) * 100;
     let message = "";
 
     if (percentage === 100) {
@@ -591,16 +669,8 @@ function showResult() {
         message = "📖 Concept আরেকবার পড়ে MCQ আবার চেষ্টা করো।";
     }
 
-    document.getElementById("scoreMessage").textContent =
-        message;
-
-    document.getElementById("restartButton").style.display =
-        "inline-block";
-
-    window.scrollTo({
-        top: document.getElementById("scoreCard").offsetTop - 20,
-        behavior: "smooth"
-    });
+    document.getElementById("scoreMessage").textContent = message;
+    document.getElementById("restartButton").style.display = "inline-block";
 }
 
 
@@ -609,26 +679,38 @@ function showResult() {
 // -------------------------
 
 function restartQuiz() {
-
     currentQuestion = 0;
     score = 0;
-
-    document.getElementById("scoreCard").style.display =
-        "none";
-
-    document.getElementById("quizCard").style.display =
-        "block";
-
+    document.getElementById("scoreCard").style.display = "none";
+    document.getElementById("quizCard").style.display = "block";
     loadQuestion();
-
-    window.scrollTo({
-        top: document.getElementById("quizCard").offsetTop - 20,
-        behavior: "smooth"
-    });
 }
 
 
-// Start
+// -------------------------
+// Add Comment System
+// -------------------------
+
+function addComment() {
+    const input = document.getElementById("commentInput");
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    const commentsList = document.getElementById("commentsList");
+    const newComment = document.createElement("div");
+    newComment.className = "comment-item";
+    newComment.innerHTML = `
+        <div class="comment-user">আপনি</div>
+        <div class="comment-text">${text}</div>
+    `;
+
+    commentsList.prepend(newComment);
+    input.value = "";
+}
+
+
+// Start Quiz
 loadQuestion();
 
 </script>
