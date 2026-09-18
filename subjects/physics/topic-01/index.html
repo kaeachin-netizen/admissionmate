@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ভৌত জগৎ ও মৌলিক রাশিসমূহ | AdmissionMate</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, "Noto Sans Bengali", sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+            line-height: 1.7;
+        }
+
+        .topbar {
+            background: #0b2d5c;
+            color: white;
+            padding: 16px 20px;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .topbar p {
+            margin: 3px 0 0;
+            opacity: .85;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px 15px 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 22px;
+            margin-bottom: 18px;
+            box-shadow: 0 3px 15px rgba(0,0,0,.06);
+        }
+
+        h2 {
+            color: #0b2d5c;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #183f73;
+            margin-top: 22px;
+        }
+
+        .remember,
+        .warning {
+            padding: 14px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .remember {
+            background: #eef7ff;
+            border-left: 4px solid #1976d2;
+        }
+
+        .warning {
+            background: #fff7df;
+            border-left: 4px solid #e0a800;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px;
+        }
+
+        th,
+        td {
+            border: 1px solid #dfe4ec;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #eef3f9;
+        }
+
+        .progress-area {
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            height: 9px;
+            background: #e5e9f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #1976d2;
+            transition: .3s;
+        }
+
+        .question-number {
+            color: #687386;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .question {
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .option {
+            display: block;
+            width: 100%;
+            padding: 13px 15px;
+            margin: 9px 0;
+            background: white;
+            border: 1px solid #d5dbe5;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .2s;
+        }
+
+        .option:hover {
+            background: #f1f6fc;
+        }
+
+        .option.correct {
+            background: #e9f8ee;
+            border-color: #35a853;
+        }
+
+        .option.wrong {
+            background: #fff0f0;
+            border-color: #e53935;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .feedback.correct {
+            background: #eaf8ee;
+            border: 1px solid #5cbf75;
+        }
+
+        .feedback.wrong {
+            background: #fff0f0;
+            border: 1px solid #e57373;
+        }
+
+        .explanation-buttons {
+            display: none;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .explanation-buttons button {
+            border: 0;
+            padding: 10px 13px;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #e9eef5;
+            color: #183f73;
+            font-weight: 600;
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 12px;
+            padding: 16px;
+            background: #f7f9fc;
+            border-radius: 10px;
+        }
+
+        .reference {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #667085;
+        }
+
+        .next-btn,
+        .restart-btn {
+            display: none;
+            border: 0;
+            background: #0b2d5c;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 9px;
+            cursor: pointer;
+            margin-top: 18px;
+            font-size: 15px;
+        }
+
+        .score {
+            display: none;
+            text-align: center;
+        }
+
+        .score-number {
+            font-size: 38px;
+            font-weight: bold;
+            color: #0b2d5c;
+        }
+
+        .revision-list li {
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 14px 10px 40px;
+            }
+
+            .card {
+                padding: 17px;
+            }
+
+            .question {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="topbar">
+    <h1>AdmissionMate</h1>
+    <p>Physics 1st Paper → Chapter 1 → Topic 01</p>
+</header>
+
+<main class="container">
+
+    <!-- Topic Header -->
+    <section class="card">
+        <h2 id="topicTitle"></h2>
+        <p id="chapterTitle"></p>
+    </section>
+
+    <!-- Concept -->
+    <section class="card">
+        <h2>📖 Concept</h2>
+        <div id="conceptArea"></div>
+    </section>
+
+    <!-- MCQ -->
+    <section class="card" id="quizCard">
+
+        <h2>📝 MCQ Practice</h2>
+
+        <div class="progress-area">
+            <div id="questionCount"></div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="question-number" id="questionNumber"></div>
+
+        <div class="question" id="questionText"></div>
+
+        <div id="optionsArea"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="explanation-buttons" id="explanationButtons">
+            <button onclick="showExplanation('general')">
+                📘 General Explanation
+            </button>
+
+            <button onclick="showExplanation('detailed')">
+                📖 Detailed Explanation
+            </button>
+
+            <button onclick="showExplanation('tips')">
+                💡 Short Tips
+            </button>
+        </div>
+
+        <div class="explanation-box" id="explanationBox"></div>
+
+        <div class="reference" id="reference"></div>
+
+        <button class="next-btn" id="nextButton" onclick="nextQuestion()">
+            Next Question →
+        </button>
+
+    </section>
+
+    <!-- Score -->
+    <section class="card score" id="scoreCard">
+
+        <h2>🎯 Quiz Complete!</h2>
+
+        <div class="score-number" id="scoreNumber"></div>
+
+        <p id="scoreMessage"></p>
+
+        <button class="restart-btn" id="restartButton" onclick="restartQuiz()">
+            আবার শুরু করো
+        </button>
+
+    </section>
+
+    <!-- Quick Revision -->
+    <section class="card">
+        <h2>⚡ Quick Revision</h2>
+
+        <ul class="revision-list" id="revisionList"></ul>
+    </section>
+
+</main>
+
+<script src="data.js"></script>
+
+<script>
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+const topicTitle = document.getElementById("topicTitle");
+const chapterTitle = document.getElementById("chapterTitle");
+const conceptArea = document.getElementById("conceptArea");
+const revisionList = document.getElementById("revisionList");
+
+topicTitle.textContent = topicData.topic;
+chapterTitle.textContent = topicData.chapter;
+
+
+// -------------------------
+// Concept
+// -------------------------
+
+topicData.concept.sections.forEach(section => {
+
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+        <h3>${section.title}</h3>
+        ${section.content}
+    `;
+
+    conceptArea.appendChild(div);
+});
+
+
+// -------------------------
+// Quick Revision
+// -------------------------
+
+topicData.quickRevision.forEach(item => {
+
+    const li = document.createElement("li");
+
+    li.textContent = item;
+
+    revisionList.appendChild(li);
+});
+
+
+// -------------------------
+// Load Question
+// -------------------------
+
+function loadQuestion() {
+
+    answered = false;
+
+    const q = topicData.questions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        `Question ${currentQuestion + 1} / ${topicData.questions.length}`;
+
+    document.getElementById("questionCount").textContent =
+        `${currentQuestion + 1} of ${topicData.questions.length}`;
+
+    document.getElementById("progressFill").style.width =
+        `${((currentQuestion) / topicData.questions.length) * 100}%`;
+
+    document.getElementById("questionText").textContent =
+        q.question;
+
+    const optionsArea =
+        document.getElementById("optionsArea");
+
+    optionsArea.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "option";
+
+        button.textContent =
+            `${String.fromCharCode(65 + index)}) ${option}`;
+
+        button.onclick = () =>
+            checkAnswer(index, button);
+
+        optionsArea.appendChild(button);
+    });
+
+    document.getElementById("feedback").style.display = "none";
+
+    document.getElementById("explanationButtons").style.display = "none";
+
+    document.getElementById("explanationBox").style.display = "none";
+
+    document.getElementById("reference").textContent = "";
+
+    document.getElementById("nextButton").style.display = "none";
+}
+
+
+// -------------------------
+// Check Answer
+// -------------------------
+
+function checkAnswer(selected, selectedButton) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const q = topicData.questions[currentQuestion];
+
+    const buttons =
+        document.querySelectorAll(".option");
+
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    const feedback =
+        document.getElementById("feedback");
+
+    if (selected === q.answer) {
+
+        score++;
+
+        selectedButton.classList.add("correct");
+
+        feedback.className =
+            "feedback correct";
+
+        feedback.innerHTML =
+            "✅ সঠিক উত্তর! 🎉 খুব ভালো! এগিয়ে যাও।";
+
+    } else {
+
+        selectedButton.classList.add("wrong");
+
+        buttons[q.answer].classList.add("correct");
+
+        feedback.className =
+            "feedback wrong";
+
+        feedback.innerHTML =
+            "❌ ভুল উত্তর! 🚫 সঠিক উত্তরটি দেখে Concept-টি আরেকবার মিলিয়ে নাও।";
+    }
+
+    feedback.style.display = "block";
+
+    document.getElementById("explanationButtons")
+        .style.display = "flex";
+
+    document.getElementById("reference").innerHTML =
+        `<strong>📚 Previous Question / Reference:</strong> ${q.reference}`;
+
+    document.getElementById("nextButton").style.display =
+        "inline-block";
+
+    if (currentQuestion === topicData.questions.length - 1) {
+
+        document.getElementById("nextButton").textContent =
+            "See Result →";
+    }
+}
+
+
+// -------------------------
+// Explanation
+// -------------------------
+
+function showExplanation(type) {
+
+    const q = topicData.questions[currentQuestion];
+
+    const box =
+        document.getElementById("explanationBox");
+
+    if (type === "general") {
+
+        box.innerHTML =
+            `<strong>📘 General Explanation</strong><br><br>${q.general}`;
+
+    } else if (type === "detailed") {
+
+        box.innerHTML =
+            `<strong>📖 Detailed Explanation</strong><br><br>${q.detailed}`;
+
+    } else {
+
+        box.innerHTML =
+            `<strong>💡 Short Tips</strong><br><br>${q.tips}`;
+    }
+
+    box.style.display = "block";
+}
+
+
+// -------------------------
+// Next Question
+// -------------------------
+
+function nextQuestion() {
+
+    if (currentQuestion < topicData.questions.length - 1) {
+
+        currentQuestion++;
+
+        loadQuestion();
+
+        window.scrollTo({
+            top: document.getElementById("quizCard").offsetTop - 20,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        showResult();
+    }
+}
+
+
+// -------------------------
+// Result
+// -------------------------
+
+function showResult() {
+
+    document.getElementById("quizCard").style.display =
+        "none";
+
+    document.getElementById("scoreCard").style.display =
+        "block";
+
+    document.getElementById("scoreNumber").textContent =
+        `${score} / ${topicData.questions.length}`;
+
+    const percentage =
+        (score / topicData.questions.length) * 100;
+
+    let message = "";
+
+    if (percentage === 100) {
+        message = "🎉 Excellent! সবগুলো সঠিক হয়েছে!";
+    } else if (percentage >= 80) {
+        message = "👏 খুব ভালো! আরেকবার Revision দিলে আরও ভালো হবে।";
+    } else if (percentage >= 50) {
+        message = "👍 ভালো শুরু। ভুল হওয়া প্রশ্নগুলো আবার দেখো।";
+    } else {
+        message = "📖 Concept আরেকবার পড়ে MCQ আবার চেষ্টা করো।";
+    }
+
+    document.getElementById("scoreMessage").textContent =
+        message;
+
+    document.getElementById("restartButton").style.display =
+        "inline-block";
+
+    window.scrollTo({
+        top: document.getElementById("scoreCard").offsetTop - 20,
+        behavior: "smooth"
+    });
+}
+
+
+// -------------------------
+// Restart
+// -------------------------
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("scoreCard").style.display =
+        "none";
+
+    document.getElementById("quizCard").style.display =
+        "block";
+
+    loadQuestion();
+
+    window.scrollTo({
+        top: document.getElementById("quizCard").offsetTop - 20,
+        behavior: "smooth"
+    });
+}
+
+
+// Start
+loadQuestion();
+
+</script>
+
+</body>
+</html>
